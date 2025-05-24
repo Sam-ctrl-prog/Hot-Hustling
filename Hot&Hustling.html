@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be More Than Just a Resume. Be a Brand.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight-blue: #0B0F1D;
+            --cyber-white: #F7F9FC;
+            --electric-purple: #8F00FF;
+            --neon-mint: #3FFFA8;
+            --warm-gray: #B0B0B0;
+            --blush-pink: #FEE4E4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--midnight-blue);
+            color: var(--cyber-white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--midnight-blue) 0%, #1a1d3a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="g1" cx="50%" cy="50%"><stop offset="0%" stop-color="%238F00FF" stop-opacity="0.1"/><stop offset="100%" stop-color="%238F00FF" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23g1)"/><circle cx="800" cy="400" r="200" fill="url(%23g1)"/><circle cx="1000" cy="100" r="100" fill="url(%23g1)"/></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--cyber-white) 0%, var(--neon-mint) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtext {
+            font-size: 1.25rem;
+            color: var(--warm-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            font-size: 1.1rem;
+            color: var(--neon-mint);
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--electric-purple) 0%, #b44dff 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(143, 0, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(143, 0, 255, 0.4);
+            background: linear-gradient(135deg, #a000e6 0%, #d966ff 100%);
+        }
+
+        /* Hero Mockup */
+        .hero-mockup {
+            position: absolute;
+            right: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 600px;
+            height: 400px;
+            opacity: 0.1;
+        }
+
+        /* Why It Matters Section */
+        .why-matters {
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, var(--midnight-blue) 0%, #0f1426 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--cyber-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(247, 249, 252, 0.05);
+            padding: 2rem;
+            border-radius: 18px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(247, 249, 252, 0.08);
+            border-color: var(--neon-mint);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--neon-mint);
+        }
+
+        .feature-card p {
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        /* What's Included Section */
+        .whats-included {
+            padding: 4rem 2rem;
+            background: var(--midnight-blue);
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .included-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(63, 255, 168, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--neon-mint);
+        }
+
+        .included-item::before {
+            content: '✅';
+            font-size: 1.2rem;
+        }
+
+        /* Preview Section */
+        .preview-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, var(--midnight-blue) 0%, #1a1d3a 100%);
+        }
+
+        .preview-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .preview-card {
+            min-width: 300px;
+            height: 400px;
+            background: var(--cyber-white);
+            border-radius: 18px;
+            padding: 2rem;
+            color: var(--midnight-blue);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .preview-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(143, 0, 255, 0.3);
+        }
+
+        .preview-card::before {
+            content: 'Sample Profile';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--electric-purple);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 4rem 2rem;
+            background: var(--midnight-blue);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--electric-purple) 0%, var(--neon-mint) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--cyber-white);
+        }
+
+        .step p {
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        /* Creator Video Section */
+        .creator-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1a1d3a 0%, var(--midnight-blue) 100%);
+            text-align: center;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: rgba(247, 249, 252, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            border: 2px dashed var(--warm-gray);
+            color: var(--warm-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 2rem;
+            background: var(--midnight-blue);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--blush-pink);
+            color: var(--midnight-blue);
+            padding: 2rem;
+            border-radius: 18px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            color: var(--electric-purple);
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--electric-purple);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--midnight-blue) 0%, #1a1d3a 100%);
+            text-align: center;
+        }
+
+        .price-card {
+            max-width: 400px;
+            margin: 2rem auto;
+            background: rgba(247, 249, 252, 0.05);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 2px solid var(--electric-purple);
+            backdrop-filter: blur(10px);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--neon-mint);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-sub {
+            color: var(--warm-gray);
+            margin-bottom: 2rem;
+        }
+
+        .urgency-text {
+            background: linear-gradient(135deg, var(--electric-purple), var(--neon-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 4rem 2rem;
+            background: var(--midnight-blue);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(247, 249, 252, 0.05);
+            padding: 3rem;
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--cyber-white);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(247, 249, 252, 0.05);
+            color: var(--cyber-white);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-mint);
+            box-shadow: 0 0 0 3px rgba(63, 255, 168, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 2rem 2rem;
+            background: #050812;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--warm-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--neon-mint);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-mockup {
+                display: none;
+            }
+
+            .features-grid,
+            .included-grid,
+            .steps-container,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-carousel {
+                padding-left: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--warm-gray);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Be More Than Just a Resume. Be a Brand.</h1>
+                <p class="hero-subtext">Your professional story, told through a custom-crafted digital page — made for today's world, powered by design and AI.</p>
+                <p class="hero-stats">Stand out from 2,000+ students. Own your unique space online.</p>
+                <a href="#form" class="cta-button">
+                    ✨ Reserve My Spot – ₹799
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 16l-6-6h12l-6 6z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Why It Matters Section -->
+    <section class="why-matters">
+        <div class="container">
+            <h2 class="section-title">Your Digital First Impression</h2>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Recruiters Google You. Let Them Find Gold.</h3>
+                    <p>Your profile is SEO-ready and crafted to impress from the first search result.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🎤</div>
+                    <h3>A Page That Speaks for You.</h3>
+                    <p>AI-written summaries, project highlights, and smart storytelling that captures your essence.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Future-Proof Your Career.</h3>
+                    <p>Shareable link you can use in college, job apps, freelancing, and networking forever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section class="whats-included">
+        <div class="container">
+            <h2 class="section-title">What's Included?</h2>
+            <div class="included-grid">
+                <div class="included-item">Custom domain profile (yourname.brandsite.in)</div>
+                <div class="included-item">Profile picture & intro section</div>
+                <div class="included-item">Bio + Career goals</div>
+                <div class="included-item">Top skills, achievements, and projects</div>
+                <div class="included-item">Resume link integration</div>
+                <div class="included-item">Social media + CTA buttons</div>
+                <div class="included-item">AI-generated summary about you</div>
+                <div class="included-item">1 free update post-delivery</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="preview-section">
+        <div class="container">
+            <h2 class="section-title">See Samples</h2>
+            <div class="preview-carousel">
+                <div class="preview-card">
+                    <h3 style="color: #8F00FF; margin-bottom: 1rem;">Aditi Sharma</h3>
+                    <p style="color: #666; margin-bottom: 1rem;">UI/UX Designer & Frontend Developer</p>
+                    <div style="height: 100px; background: linear-gradient(135deg, #8F00FF, #3FFFA8); border-radius: 8px; margin-bottom: 1rem; opacity: 0.3;"></div>
+                    <p style="font-size: 0.9rem; color: #888;">✨ Creative problem solver with 3 years experience...</p>
+                </div>
+                <div class="preview-card">
+                    <h3 style="color: #8F00FF; margin-bottom: 1rem;">Rohan Patel</h3>
+                    <p style="color: #666; margin-bottom: 1rem;">Data Scientist & ML Engineer</p>
+                    <div style="height: 100px; background: linear-gradient(135deg, #3FFFA8, #8F00FF); border-radius: 8px; margin-bottom: 1rem; opacity: 0.3;"></div>
+                    <p style="font-size: 0.9rem; color: #888;">🔍 Turning data into insights, one algorithm at a time...</p>
+                </div>
+                <div class="preview-card">
+                    <h3 style="color: #8F00FF; margin-bottom: 1rem;">Priya Singh</h3>
+                    <p style="color: #666; margin-bottom: 1rem;">Marketing Strategist & Content Creator</p>
+                    <div style="height: 100px; background: linear-gradient(135deg, #FF6B8A, #4ECDC4); border-radius: 8px; margin-bottom: 1rem; opacity: 0.3;"></div>
+                    <p style="font-size: 0.9rem; color: #888;">📈 Building brands through strategic storytelling...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works – 3 Simple Steps</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Fill the Form</h3>
+                    <p>Takes just 3 minutes. Share your details, upload your pic and resume, tell us your story.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Pay ₹799</h3>
+                    <p>Secure your slot with our simple payment process. Your investment in your future starts here.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>We Build It</h3>
+                    <p>Page delivered in 48–72 hours. Professional, polished, and ready to impress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creator Video Section -->
+    <section class="creator-section">
+        <div class="container">
+            <h2 class="section-title">Hear From the Creator</h2>
+            <div class="video-placeholder">
+                📹 Creator Video (60 seconds)
+                <br><br>
+                "This is more than design — it's about visibility. I built this because I know what it's like to get ignored despite having the talent. You deserve better. Let's make sure the world sees you right."
+            </div>
+        </div>
+    </section>
+
+  
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Ready to Stand Out?</h2>
+            <div class="price-card">
+                <div class="price">₹799</div>
+                <p class="price-sub">One-time payment, no hidden costs</p>
+                <p class="urgency-text">🔥 First 100 students get a free "Visibility Boost" — we'll share your page in our top recruiter network.</p>
+                <a href="#form" class="cta-button">
+                    🚀 Claim Your Spot Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="form">
+        <div class="container">
+            <h2 class="section-title">Let's Build Your Brand</h2>
+            <div class="form-container">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="college">College/University</label>
+                        <input type="text" id="college" name="college">
+                    </div>
+                    <div class="form-group">
+                        <label for="course">Course/Major</label>
+                        <input type="text" id="course" name="course">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Tell us about yourself (2-3 sentences) *</label>
+                        <textarea id="bio" name="bio" rows="4" placeholder="What makes you unique? What are your goals?" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Top 5 Skills</label>
+                        <input type="text" id="skills" name="skills" placeholder="e.g., Python, UI Design, Digital Marketing">
+                    </div>
+                    <div class="form-group">
+                        <label for="projects">Key Projects/Achievements</label>
+                        <textarea id="projects" name="projects" rows="3" placeholder="Briefly describe your best work"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="socials">Social Media Links</label>
+                        <input type="text" id="socials" name="socials" placeholder="LinkedIn, Instagram, GitHub, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Profile Photo Upload *</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resume">Resume Upload</label>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                    </div>
+                    
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <h3 style="color: var(--neon-mint); margin-bottom: 1rem;">Secure Payment</h3>
+                        <p style="color: var(--warm-gray); margin-bottom: 1rem;">Pay ₹799 via UPI or Card</p>
+                        <div style="background: rgba(247, 249, 252, 0.1); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <p style="font-size: 1.1rem; margin-bottom: 1rem;">🔒 UPI Payment</p>
+                            <p style="font-family: monospace; background: var(--midnight-blue); padding: 1rem; border-radius: 8px;">yourname@upi</p>
+                            <p style="color: var(--warm-gray); font-size: 0.9rem; margin-top: 1rem;">After payment, upload screenshot below</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="payment-proof">Payment Screenshot *</label>
+                            <input type="file" id="payment-proof" name="payment-proof" accept="image/*" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="cta-button" style="width: 100%; justify-content: center;">
+                        🎯 Submit & Reserve My Spot
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#">📸 Instagram</a>
+                <a href="#">💼 LinkedIn</a>
+                <a href="#">📧 Support Email</a>
+                <a href="#">💬 WhatsApp</a>
+            </div>
+            <p style="color: var(--warm-gray);">© 2024 Personal Brand Builder. Making you unforgettable.</p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects to preview cards
+        document.querySelectorAll('.preview-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotateY(5deg)';
+                this.style.boxShadow = '0 25px 80px rgba(143, 0, 255, 0.4)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotateY(0deg)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Form validation and enhancement
+        const form = document.querySelector('form');
+        const requiredFields = form.querySelectorAll('[required]');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#ff4757';
+                    field.style.boxShadow = '0 0 0 3px rgba(255, 71, 87, 0.2)';
+                } else {
+                    field.style.borderColor = 'var(--neon-mint)';
+                    field.style.boxShadow = '0 0 0 3px rgba(63, 255, 168, 0.2)';
+                }
+            });
+            
+            if (isValid) {
+                // Show success message
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '✅ Submitted Successfully!';
+                submitBtn.style.background = 'linear-gradient(135deg, var(--neon-mint) 0%, #2ed573 100%)';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = 'linear-gradient(135deg, var(--electric-purple) 0%, #b44dff 100%)';
+                }, 3000);
+                
+                // Here you would normally send the form data to your server
+                console.log('Form submitted successfully');
+            } else {
+                // Show error message
+                alert('Please fill in all required fields');
+            }
+        });
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect on page load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            typeWriter(heroTitle, originalText, 50);
+        });
+
+        // Add particles effect to hero background
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'var(--neon-mint)';
+            particle.style.borderRadius = '50%';
+            particle.style.opacity = '0.6';
+            particle.style.animation = 'float 6s linear infinite';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            
+            document.querySelector('.hero').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        // Create floating particles
+        setInterval(createParticle, 500);
+
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% {
+                    transform: translateY(100vh) scale(0);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 0.6;
+                }
+                90% {
+                    opacity: 0.6;
+                }
+                100% {
+                    transform: translateY(-100vh) scale(1);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add testimonial rotation effect
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+        
+        function rotateTestimonials() {
+            testimonials.forEach((testimonial, index) => {
+                if (index === currentTestimonial) {
+                    testimonial.style.transform = 'scale(1.05)';
+                    testimonial.style.boxShadow = '0 10px 40px rgba(143, 0, 255, 0.3)';
+                } else {
+                    testimonial.style.transform = 'scale(1)';
+                    testimonial.style.boxShadow = 'none';
+                }
+            });
+            
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        }
+        
+        setInterval(rotateTestimonials, 3000);
+
+        // Add counter animation for pricing
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = '₹' + Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = '₹' + target;
+                }
+            }
+            updateCounter();
+        }
+
+        // Trigger counter animation when pricing section comes into view
+        const priceElement = document.querySelector('.price');
+        const priceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(priceElement, 799);
+                    priceObserver.unobserve(entry.target);
+                }
+            });
+        });
+        priceObserver.observe(priceElement);
+    </script>
+</body>
+</html>
