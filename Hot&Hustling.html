@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hot & Hustling - Stop Being Invisible. Start Being Unforgettable.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Hot & Hustling - Build Your Career. Your Brand. Your Damn Empire.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,24 +13,25 @@
         }
 
         :root {
-            --primary-black: #0a0a0a;
-            --secondary-black: #1a1a1a;
+            --base-dark: #0E0E10;
+            --secondary-dark: #1F1F1F;
+            --accent-coral: #FF4C60;
+            --accent-gold: #FFD700;
+            --bright-gold: #F8E71C;
             --white: #ffffff;
-            --accent-gold: #ffd700;
-            --accent-blue: #00d4ff;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-300: #d4d4d4;
-            --gray-800: #262626;
-            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --gray-light: #f5f5f5;
+            --gray-medium: #888888;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-glow: 0 20px 40px rgba(255, 76, 96, 0.3);
+            --shadow-gold: 0 20px 40px rgba(255, 215, 0, 0.4);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--primary-black);
+            color: var(--white);
+            background: var(--base-dark);
             overflow-x: hidden;
         }
 
@@ -43,7 +44,7 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, var(--base-dark) 0%, var(--secondary-dark) 100%);
             display: flex;
             align-items: center;
             position: relative;
@@ -57,67 +58,89 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
-            animation: pulse 4s ease-in-out infinite alternate;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 76, 96, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(248, 231, 28, 0.05) 0%, transparent 70%);
+            animation: shimmer 6s ease-in-out infinite alternate;
         }
 
-        @keyframes pulse {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.6; }
+        @keyframes shimmer {
+            0% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.02); }
+            100% { opacity: 0.5; transform: scale(1); }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            color: var(--white);
-            animation: slideUp 1s ease-out;
+            animation: heroSlide 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        @keyframes slideUp {
+        @keyframes heroSlide {
             from {
                 opacity: 0;
-                transform: translateY(60px);
+                transform: translateY(80px) scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 700;
             line-height: 0.9;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--accent-gold) 100%);
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-coral) 50%, var(--accent-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 76, 96, 0.3);
+            position: relative;
+        }
+
+        .fire-emoji {
+            display: inline-block;
+            animation: fireFlicker 2s ease-in-out infinite;
+            margin-left: 20px;
+        }
+
+        @keyframes fireFlicker {
+            0%, 100% { transform: scale(1) rotate(-2deg); }
+            25% { transform: scale(1.1) rotate(2deg); }
+            50% { transform: scale(1.05) rotate(-1deg); }
+            75% { transform: scale(1.08) rotate(1deg); }
         }
 
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 300;
+            font-weight: 400;
             margin-bottom: 3rem;
             opacity: 0.9;
-            animation: slideUp 1s ease-out 0.3s both;
+            animation: heroSlide 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0.3s both;
+            max-width: 600px;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 20px 40px;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffed4e 100%);
-            color: var(--primary-black);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 22px 45px;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #ff6b7a 100%);
+            color: var(--white);
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             border-radius: 50px;
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: var(--shadow-medium);
-            animation: slideUp 1s ease-out 0.6s both;
+            box-shadow: var(--shadow-glow);
+            animation: heroSlide 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) 0.6s both;
             position: relative;
             overflow: hidden;
+            border: 2px solid transparent;
         }
 
         .cta-button::before {
@@ -127,8 +150,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.7s ease;
         }
 
         .cta-button:hover::before {
@@ -136,8 +159,25 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: var(--shadow-heavy);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(255, 76, 96, 0.5);
+            border-color: var(--accent-gold);
+        }
+
+        /* Glass Card Base */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-coral);
+            box-shadow: 0 25px 50px rgba(255, 76, 96, 0.2);
         }
 
         /* Section Styles */
@@ -147,23 +187,28 @@
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
             text-align: center;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-coral) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .section-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-align: center;
-            color: var(--gray-800);
+            color: var(--gray-medium);
             margin-bottom: 4rem;
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease-out 0.2s;
+            transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s;
         }
 
         .visible {
@@ -173,223 +218,40 @@
 
         /* Problem Section */
         .problem-section {
-            background: var(--gray-100);
+            background: linear-gradient(135deg, var(--base-dark) 0%, var(--secondary-dark) 100%);
         }
 
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
             margin-top: 4rem;
         }
 
         .problem-card {
-            background: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-light);
-            transition: all 0.4s ease;
+            padding: 3rem 2.5rem;
             opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .problem-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
+            transform: translateY(60px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .problem-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-black);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--accent-coral);
         }
 
-        /* Pricing Section */
-        .pricing-section {
-            background: var(--primary-black);
-            color: var(--white);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .pricing-card {
-            background: var(--secondary-black);
-            border-radius: 24px;
-            padding: 3rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            opacity: 0;
-            transform: translateY(40px) scale(0.95);
-            border: 2px solid transparent;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-blue));
-            border-radius: 24px;
-            padding: 2px;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .pricing-card:hover::before {
-            opacity: 1;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.2);
-        }
-
-        .pricing-card.elite {
-            background: linear-gradient(135deg, var(--secondary-black) 0%, #2a2a2a 100%);
-            border: 2px solid var(--accent-gold);
-        }
-
-        .pricing-card.elite::after {
-            content: 'MOST POPULAR';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent-gold);
-            color: var(--primary-black);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .package-name {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .package-price {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--accent-gold);
-            margin-bottom: 2rem;
-        }
-
-        .package-features {
-            list-style: none;
-            margin-bottom: 3rem;
-        }
-
-        .package-features li {
-            padding: 12px 0;
-            position: relative;
-            padding-left: 30px;
+        .problem-card p {
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .package-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-gold);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .package-features li:hover {
-            transform: translateX(10px);
-            color: var(--accent-gold);
-        }
-
-        .package-button {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffed4e 100%);
-            color: var(--primary-black);
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .package-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s;
-        }
-
-        .package-button:hover::before {
-            left: 100%;
-        }
-
-        .package-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
-        }
-
-        /* Testimonials */
-        .testimonials-section {
-            background: var(--gray-100);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-light);
-            transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .testimonial-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--accent-gold);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* Process Section */
         .process-section {
-            background: var(--white);
+            background: var(--secondary-dark);
         }
 
         .process-grid {
@@ -403,64 +265,302 @@
             text-align: center;
             padding: 2rem;
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.6s ease;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-blue) 100%);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, var(--accent-gold) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            font-weight: 900;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--white);
             margin: 0 auto 2rem;
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 15px 30px rgba(255, 76, 96, 0.4);
         }
 
         .process-step:hover .step-number {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 25px 50px rgba(255, 76, 96, 0.6);
         }
 
         .process-step h3 {
-            font-size: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent-coral);
+        }
+
+        .process-step p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--base-dark);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(60px) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .pricing-card.elite::after {
+            content: '🔥 MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--bright-gold) 100%);
+            color: var(--base-dark);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-gold);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: var(--shadow-gold); }
+            to { box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6); }
+        }
+
+        .package-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--accent-coral);
         }
 
-        /* CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .final-cta h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--accent-gold) 100%);
+        .package-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--bright-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 2rem;
+        }
+
+        .package-description {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .package-features li {
+            padding: 15px 0;
+            position: relative;
+            padding-left: 35px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .package-features li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            color: var(--accent-coral);
+            font-size: 1.3rem;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .package-features li:hover {
+            transform: translateX(15px);
+            color: var(--accent-coral);
+        }
+
+        .package-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--accent-coral) 0%, #ff6b7a 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .package-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .package-button:hover::before {
+            left: 100%;
+        }
+
+        .package-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(255, 76, 96, 0.5);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--secondary-dark);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            padding: 3rem;
+            opacity: 0;
+            transform: translateY(60px) rotateX(10deg);
+            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent-coral);
+            opacity: 0.3;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--base-dark) 0%, var(--secondary-dark) 100%);
+            text-align: center;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(255, 76, 96, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%);
+            animation: finalGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes finalGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .final-cta h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-coral) 50%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
         }
 
         .urgency-text {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: var(--accent-coral);
             font-weight: 600;
+            position: relative;
+            z-index: 2;
+            animation: urgencyPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes urgencyPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .final-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
-                padding: 80px 0;
+                padding: 60px 0;
             }
             
             .section {
@@ -475,29 +575,23 @@
                 margin: 0 auto;
                 max-width: 400px;
             }
+
+            .problem-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Scroll Animations */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
@@ -506,9 +600,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Stop Being Invisible.<br>Start Being Unforgettable.</h1>
-                <p class="hero-subtitle">Your dream job won't find a basic LinkedIn and boring resume. Get a complete digital makeover that makes recruiters stop, stare, and say "we need to hire this person."</p>
-                <a href="#packages" class="cta-button">Book My Slot</a>
+                <h1>Build Your Career. Your Brand. Your Damn Empire.<span class="fire-emoji">🔥</span></h1>
+                <p class="hero-subtitle">Stop blending into the background. We craft digital brands so magnetic that opportunities chase YOU. From invisible to unforgettable in under a week.</p>
+                <a href="#packages" class="cta-button">
+                    ⚡ Get Started
+                </a>
             </div>
         </div>
     </section>
@@ -517,20 +613,20 @@
     <section class="section problem-section">
         <div class="container">
             <h2 class="section-title animate-on-scroll">The Truth About Standing Out</h2>
-            <p class="section-subtitle animate-on-scroll">Generic profiles get ignored. Memorable brands get hired.</p>
+            <p class="section-subtitle animate-on-scroll">Generic profiles get ignored. Magnetic brands get hired.</p>
             
             <div class="problem-grid">
-                <div class="problem-card animate-on-scroll">
+                <div class="problem-card glass-card animate-on-scroll">
                     <h3>🚫 The Invisible Problem</h3>
-                    <p>Every hiring manager searches your name before they call. Make sure they find something that makes them want to meet you, not scroll past you.</p>
+                    <p>Every hiring manager googles your name before they call. If they find nothing memorable, you're already forgotten. Basic LinkedIn profiles and boring resumes disappear into the void.</p>
                 </div>
-                <div class="problem-card animate-on-scroll">
+                <div class="problem-card glass-card animate-on-scroll">
                     <h3>💡 The Solution</h3>
-                    <p>Stop hoping someone notices your potential. We craft your narrative so every piece of your digital presence works together to open doors.</p>
+                    <p>Stop hoping someone notices your potential. We craft your complete digital identity so every touchpoint works together to open doors and create opportunities.</p>
                 </div>
-                <div class="problem-card animate-on-scroll">
+                <div class="problem-card glass-card animate-on-scroll">
                     <h3>🚀 The Future</h3>
-                    <p>This isn't just about your next job. We're building a foundation that grows with you—from internships to CEO. Your brand evolves, but your reputation stays strong.</p>
+                    <p>This isn't just about your next job. We're building a foundation that grows with you—from internships to CEO. Your brand evolves, but your reputation stays bulletproof.</p>
                 </div>
             </div>
         </div>
@@ -539,13 +635,13 @@
     <!-- Process Section -->
     <section class="section process-section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">From Invisible to Irresistible in Under a Week</h2>
+            <h2 class="section-title animate-on-scroll">From Invisible to Magnetic in Under a Week</h2>
             
             <div class="process-grid">
                 <div class="process-step animate-on-scroll">
                     <div class="step-number">1</div>
                     <h3>Deep Dive Discovery</h3>
-                    <p>Tell us your story, goals, and dreams. We dig deep to understand what makes you unique and where you want to go.</p>
+                    <p>Tell us your story, goals, and dreams. We dig deep to understand what makes you unique and where you want to dominate.</p>
                 </div>
                 <div class="process-step animate-on-scroll">
                     <div class="step-number">2</div>
@@ -554,8 +650,8 @@
                 </div>
                 <div class="process-step animate-on-scroll">
                     <div class="step-number">3</div>
-                    <h3>Launch & Transform</h3>
-                    <p>Launch your new brand and watch as recruiters, mentors, and opportunities start reaching out to you. The transformation is immediate.</p>
+                    <h3>Launch & Dominate</h3>
+                    <p>Launch your new brand and watch as recruiters, mentors, and opportunities start reaching out to you. The transformation is immediate and lasting.</p>
                 </div>
             </div>
         </div>
@@ -568,32 +664,32 @@
             <p class="section-subtitle animate-on-scroll">Both packages guarantee you'll never be overlooked again.</p>
             
             <div class="pricing-grid">
-                <div class="pricing-card animate-on-scroll">
+                <div class="pricing-card glass-card animate-on-scroll">
                     <div class="package-name">Premium</div>
                     <div class="package-price">₹799</div>
-                    <p style="margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9;">Perfect for serious career builders</p>
+                    <p class="package-description">Perfect for serious career builders ready to stand out</p>
                     <ul class="package-features">
-                        <li>Personal landing page</li>
-                        <li>LinkedIn profile makeover</li>
-                        <li>Professional resume creation</li>
-                        <li>Link-in-bio page</li>
-                        <li>1-page elevator pitch builder</li>
-                        <li>5 cold email templates</li>
+                        <li>Personal landing page that screams "hire me"</li>
+                        <li>LinkedIn profile makeover that gets noticed</li>
+                        <li>Professional resume that opens doors</li>
+                        <li>Link-in-bio page that converts</li>
+                        <li>1-page elevator pitch that sells</li>
+                        <li>5 cold email templates that work</li>
                     </ul>
                     <button class="package-button">Get Premium Package</button>
                 </div>
                 
-                <div class="pricing-card elite animate-on-scroll">
+                <div class="pricing-card glass-card elite animate-on-scroll">
                     <div class="package-name">Elite</div>
                     <div class="package-price">₹1,499</div>
-                    <p style="margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9;">For those who want it all + personal coaching</p>
+                    <p class="package-description">For those who want it all + personal coaching to dominate</p>
                     <ul class="package-features">
                         <li>Everything in Premium, plus:</li>
                         <li>25-30 min Personal Brand Building Masterclass</li>
-                        <li>Live feedback on resume & LinkedIn</li>
+                        <li>Live feedback on resume & LinkedIn optimization</li>
                         <li>Budgeting & clarity toolkit (Notion template)</li>
-                        <li>Emergency fund calculator</li>
-                        <li>Weekly money rituals sheet</li>
+                        <li>Emergency fund calculator for financial freedom</li>
+                        <li>Weekly money rituals that build wealth</li>
                         <li>Mindful spending habits guide</li>
                     </ul>
                     <button class="package-button">Get Elite Package</button>
@@ -608,16 +704,16 @@
             <h2 class="section-title animate-on-scroll">See What Happens When You Stop Blending In</h2>
             
             <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll">
-                    <p class="testimonial-text">"I went from zero interview calls to 3 job offers in 2 months. My new LinkedIn gets me noticed everywhere."</p>
+                <div class="testimonial-card glass-card animate-on-scroll">
+                    <p class="testimonial-text">I went from zero interview calls to 3 job offers in 2 months. My new LinkedIn gets me noticed everywhere I go. Worth every single rupee!</p>
                     <div class="testimonial-author">— Priya S., Marketing Graduate</div>
                 </div>
-                <div class="testimonial-card animate-on-scroll">
-                    <p class="testimonial-text">"My landing page landed me a marketing internship at a startup I've been dreaming about. Worth every rupee!"</p>
+                <div class="testimonial-card glass-card animate-on-scroll">
+                    <p class="testimonial-text">My landing page landed me a marketing internship at a startup I've been dreaming about. Finally feel confident about my personal brand!</p>
                     <div class="testimonial-author">— Arjun K., Business Student</div>
                 </div>
-                <div class="testimonial-card animate-on-scroll">
-                    <p class="testimonial-text">"The personal branding session was a game-changer. I finally know how to present myself with confidence."</p>
+                <div class="testimonial-card glass-card animate-on-scroll">
+                    <p class="testimonial-text">The personal branding session was a complete game-changer. I finally know how to present myself with unshakeable confidence.</p>
                     <div class="testimonial-author">— Sneha M., Recent Graduate</div>
                 </div>
             </div>
@@ -629,8 +725,10 @@
         <div class="container">
             <h2>Your Dream Career Starts Today</h2>
             <p class="urgency-text">🔥 First 50 students get priority delivery + free strategy call worth ₹2000</p>
-            <p style="font-size: 1.2rem; margin-bottom: 3rem;">Stop waiting for the "perfect moment." Your dream career starts with the decision to invest in yourself today.</p>
-            <a href="#packages" class="cta-button">Transform My Brand Now</a>
+            <p class="final-description">Stop waiting for the "perfect moment." Your dream career starts with the decision to invest in yourself today. Build your empire now.</p>
+            <a href="#packages" class="cta-button">
+                🚀 Transform My Brand Now
+            </a>
         </div>
     </section>
 
@@ -649,10 +747,10 @@
             });
         });
 
-        // Scroll animations
+        // Enhanced scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -670,7 +768,7 @@
 
         // Add stagger animation to cards
         document.querySelectorAll('.problem-grid .problem-card').forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.2}s`;
+            card.style.transitionDelay = `${index * 0.3}s`;
         });
 
         document.querySelectorAll('.testimonials-grid .testimonial-card').forEach((card, index) => {
@@ -685,38 +783,141 @@
             card.style.transitionDelay = `${index * 0.2}s`;
         });
 
-        // Add parallax effect to hero background
-        window.addEventListener('scroll', () => {
+        // Enhanced parallax effect
+        let ticking = false;
+        
+        function updateParallax() {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
             if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
             }
         });
 
-        // Add button click handlers
+        // Add enhanced button interactions
         document.querySelectorAll('.package-button').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+                
                 // Add click animation
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
-                    this.style.transform = 'translateY(-3px)';
+                    this.style.transform = '';
                 }, 150);
                 
-                // You can add actual booking functionality here
-                alert('Booking functionality would be integrated here!');
+                // Simulate booking functionality
+                const packageName = this.closest('.pricing-card').querySelector('.package-name').textContent;
+                alert(`🔥 Ready to transform with the ${packageName} package? Booking functionality would integrate here!`);
             });
         });
 
-        // Add hover sound effect simulation (visual feedback)
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enhanced hover effects for all CTA buttons
         document.querySelectorAll('.cta-button, .package-button').forEach(button => {
             button.addEventListener('mouseenter', function() {
-                this.style.boxShadow = '0 20px 40px rgba(255, 215, 0, 0.4)';
+                this.style.transform = 'translateY(-8px) scale(1.05)';
+                this.style.boxShadow = '0 30px 60px rgba(255, 76, 96, 0.5)';
             });
             
             button.addEventListener('mouseleave', function() {
+                this.style.transform = '';
                 this.style.boxShadow = '';
             });
+        });
+
+        // Add floating animation to fire emoji
+        const fireEmoji = document.querySelector('.fire-emoji');
+        if (fireEmoji) {
+            setInterval(() => {
+                fireEmoji.style.transform = `scale(${1 + Math.random() * 0.2}) rotate(${-5 + Math.random() * 10}deg)`;
+            }, 2000);
+        }
+
+        // Enhanced testimonial card interactions
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) rotateX(0deg) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Add subtle mouse movement parallax for hero section
+        document.addEventListener('mousemove', (e) => {
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                
+                const heroBefore = hero.querySelector('::before');
+                if (window.innerWidth > 768) { // Only on desktop
+                    hero.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
+                }
+            }
+        });
+
+        // Add typing effect to hero subtitle (optional enhancement)
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            element.style.opacity = '1';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            // Add any initialization code here
+            console.log('🔥 Hot & Hustling landing page loaded!');
         });
     </script>
 </body>
