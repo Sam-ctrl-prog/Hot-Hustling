@@ -3,108 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transform Your Digital Presence. Own Your Future.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Hot & Hustling - Stop Being Invisible. Start Being Unforgettable.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --midnight-blue: #0B0F1D;
-            --cyber-white: #F7F9FC;
-            --electric-purple: #8F00FF;
-            --neon-mint: #3FFFA8;
-            --warm-gray: #B0B0B0;
-            --blush-pink: #FEE4E4;
-            --gold-accent: #FFD700;
-            --deep-purple: #6B46C1;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--midnight-blue);
-            color: var(--cyber-white);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+        :root {
+            --primary-black: #0a0a0a;
+            --secondary-black: #1a1a1a;
+            --white: #ffffff;
+            --accent-gold: #ffd700;
+            --accent-blue: #00d4ff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-800: #262626;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes glow {
-            0% { box-shadow: 0 0 20px rgba(143, 0, 255, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(143, 0, 255, 0.6), 0 0 60px rgba(63, 255, 168, 0.3); }
-            100% { box-shadow: 0 0 20px rgba(143, 0, 255, 0.3); }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+            padding: 0 20px;
         }
 
         /* Hero Section */
         .hero {
             min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--midnight-blue) 0%, #1a1d3a 50%, #2a1f3d 100%);
             position: relative;
             overflow: hidden;
         }
@@ -114,66 +55,67 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(143, 0, 255, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(63, 255, 168, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
-            animation: pulse 4s ease-in-out infinite;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.6; }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            animation: slideInLeft 1s ease-out;
+            color: var(--white);
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--cyber-white) 0%, var(--neon-mint) 50%, var(--gold-accent) 100%);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: glow 3s ease-in-out infinite;
         }
 
-        .hero-subtext {
-            font-size: 1.35rem;
-            color: var(--warm-gray);
-            margin-bottom: 2rem;
-            max-width: 650px;
-            line-height: 1.6;
-        }
-
-        .hero-stats {
-            font-size: 1.2rem;
-            color: var(--neon-mint);
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
             margin-bottom: 3rem;
-            font-weight: 600;
-            padding: 1rem 2rem;
-            background: rgba(63, 255, 168, 0.1);
-            border-left: 4px solid var(--neon-mint);
-            border-radius: 8px;
-            max-width: 600px;
+            opacity: 0.9;
+            animation: slideUp 1s ease-out 0.3s both;
         }
 
         .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: linear-gradient(135deg, var(--electric-purple) 0%, #b44dff 100%);
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border: none;
-            border-radius: 16px;
-            font-size: 1.2rem;
-            font-weight: 700;
+            display: inline-block;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffed4e 100%);
+            color: var(--primary-black);
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 40px rgba(143, 0, 255, 0.4);
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: var(--shadow-medium);
+            animation: slideUp 1s ease-out 0.6s both;
             position: relative;
             overflow: hidden;
         }
@@ -185,7 +127,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transition: left 0.6s;
         }
 
@@ -194,156 +136,79 @@
         }
 
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 60px rgba(143, 0, 255, 0.6);
-            background: linear-gradient(135deg, #a000e6 0%, #d966ff 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-heavy);
         }
 
-        /* Section Styling */
-        section {
-            padding: 5rem 0;
+        /* Section Styles */
+        .section {
+            padding: 120px 0;
             position: relative;
         }
 
         .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
             text-align: center;
-            font-size: clamp(2.2rem, 4vw, 3rem);
             margin-bottom: 1rem;
-            color: var(--cyber-white);
-            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
 
         .section-subtitle {
+            font-size: 1.3rem;
             text-align: center;
-            font-size: 1.2rem;
-            color: var(--warm-gray);
+            color: var(--gray-800);
             margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out 0.2s;
         }
 
-        /* Why It Matters Section */
-        .why-matters {
-            background: linear-gradient(180deg, var(--midnight-blue) 0%, #0f1426 100%);
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+        /* Problem Section */
+        .problem-section {
+            background: var(--gray-100);
         }
 
-        .feature-card {
-            background: rgba(247, 249, 252, 0.05);
-            padding: 2.5rem;
-            border-radius: 24px;
-            text-align: center;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--electric-purple), var(--neon-mint));
-            transform: scaleX(0);
-            transition: transform 0.5s ease;
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(247, 249, 252, 0.08);
-            border-color: var(--neon-mint);
-            box-shadow: 0 20px 60px rgba(143, 0, 255, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--neon-mint);
-        }
-
-        .feature-card p {
-            color: var(--warm-gray);
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            background: linear-gradient(135deg, #1a1d3a 0%, var(--midnight-blue) 100%);
-        }
-
-        .steps-container {
+        .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
         }
 
-        .step {
-            text-align: center;
-            position: relative;
-            padding: 2rem;
-            background: rgba(247, 249, 252, 0.03);
+        .problem-card {
+            background: var(--white);
+            padding: 3rem 2rem;
             border-radius: 20px;
+            box-shadow: var(--shadow-light);
             transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(40px);
         }
 
-        .step:hover {
-            transform: translateY(-5px);
-            background: rgba(247, 249, 252, 0.06);
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
         }
 
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--electric-purple) 0%, var(--neon-mint) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 0 auto 2rem;
-            box-shadow: 0 10px 30px rgba(143, 0, 255, 0.3);
-        }
-
-        .step h3 {
-            font-size: 1.4rem;
+        .problem-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--cyber-white);
-        }
-
-        .step p {
-            color: var(--warm-gray);
-            line-height: 1.6;
-            font-size: 1.05rem;
+            color: var(--primary-black);
         }
 
         /* Pricing Section */
-        .pricing {
-            background: linear-gradient(135deg, var(--midnight-blue) 0%, #1a1d3a 100%);
-            padding: 6rem 0;
+        .pricing-section {
+            background: var(--primary-black);
+            color: var(--white);
         }
 
         .pricing-grid {
@@ -351,306 +216,288 @@
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .price-card {
-            background: rgba(247, 249, 252, 0.05);
-            padding: 3rem 2.5rem;
-            border-radius: 28px;
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s ease;
+        .pricing-card {
+            background: var(--secondary-black);
+            border-radius: 24px;
+            padding: 3rem;
             position: relative;
             overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            border: 2px solid transparent;
         }
 
-        .price-card::before {
+        .pricing-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--electric-purple), var(--neon-mint));
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-blue));
+            border-radius: 24px;
+            padding: 2px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        .price-card.premium {
-            border-color: var(--electric-purple);
+        .pricing-card:hover::before {
+            opacity: 1;
         }
 
-        .price-card.elite {
-            border-color: var(--gold-accent);
-            position: relative;
+        .pricing-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.2);
         }
 
-        .price-card.elite::after {
-            content: '🔥 MOST POPULAR';
+        .pricing-card.elite {
+            background: linear-gradient(135deg, var(--secondary-black) 0%, #2a2a2a 100%);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .pricing-card.elite::after {
+            content: 'MOST POPULAR';
             position: absolute;
-            top: -15px;
+            top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, var(--gold-accent), #ffed4e);
-            color: var(--midnight-blue);
-            padding: 0.5rem 1.5rem;
+            background: var(--accent-gold);
+            color: var(--primary-black);
+            padding: 8px 16px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .price-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--neon-mint);
-            box-shadow: 0 25px 80px rgba(143, 0, 255, 0.3);
         }
 
         .package-name {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: var(--cyber-white);
-        }
-
-        .package-tagline {
-            color: var(--warm-gray);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        .price {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--neon-mint);
-            margin-bottom: 0.5rem;
-        }
-
-        .price-sub {
-            color: var(--warm-gray);
-            margin-bottom: 2.5rem;
-            font-size: 1rem;
-        }
-
-        .benefits-list {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-
-        .benefits-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
             margin-bottom: 1rem;
-            padding: 0.8rem;
-            background: rgba(63, 255, 168, 0.05);
-            border-radius: 12px;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .package-features li {
+            padding: 12px 0;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
         }
 
-        .benefits-list li:hover {
-            background: rgba(63, 255, 168, 0.1);
-            transform: translateX(5px);
-        }
-
-        .benefits-list li::before {
-            content: '✨';
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: 700;
             font-size: 1.2rem;
-            flex-shrink: 0;
         }
 
-        .benefits-list li span {
-            color: var(--cyber-white);
-            font-weight: 500;
-            line-height: 1.5;
+        .package-features li:hover {
+            transform: translateX(10px);
+            color: var(--accent-gold);
+        }
+
+        .package-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #ffed4e 100%);
+            color: var(--primary-black);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .package-button:hover::before {
+            left: 100%;
+        }
+
+        .package-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.4);
         }
 
         /* Testimonials */
-        .testimonials {
-            background: var(--midnight-blue);
-            padding: 5rem 0;
+        .testimonials-section {
+            background: var(--gray-100);
         }
 
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            gap: 3rem;
             margin-top: 4rem;
         }
 
-        .testimonial {
-            background: var(--blush-pink);
-            color: var(--midnight-blue);
-            padding: 2.5rem;
-            border-radius: 24px;
-            position: relative;
+        .testimonial-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-light);
             transition: all 0.4s ease;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(40px);
         }
 
-        .testimonial:hover {
-            transform: translateY(-5px) rotate(1deg);
-            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .testimonial::before {
-            content: '"';
-            font-size: 4rem;
-            position: absolute;
-            top: -1rem;
-            left: 1.5rem;
-            color: var(--electric-purple);
-            font-family: serif;
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
         }
 
         .testimonial-text {
+            font-size: 1.2rem;
             font-style: italic;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 2rem;
             line-height: 1.6;
-            padding-top: 1rem;
         }
 
         .testimonial-author {
             font-weight: 700;
-            color: var(--electric-purple);
-            font-size: 1.1rem;
+            color: var(--accent-gold);
         }
 
-        .testimonial-role {
-            color: var(--deep-purple);
-            font-size: 0.95rem;
-            margin-top: 0.2rem;
+        /* Process Section */
+        .process-section {
+            background: var(--white);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-blue) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--white);
+            margin: 0 auto 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         /* CTA Section */
         .final-cta {
-            background: linear-gradient(135deg, #1a1d3a 0%, var(--midnight-blue) 100%);
-            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+            color: var(--white);
             text-align: center;
+            padding: 100px 0;
         }
 
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .urgency-text {
-            background: linear-gradient(135deg, var(--electric-purple), var(--neon-mint));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            margin-bottom: 3rem;
             font-size: 1.3rem;
-            padding: 1.5rem;
-            border: 2px dashed var(--electric-purple);
-            border-radius: 16px;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 4rem 2rem 2rem;
-            background: #050812;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links a {
-            color: var(--warm-gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.8rem 1.5rem;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .social-links a:hover {
-            color: var(--neon-mint);
-            background: rgba(63, 255, 168, 0.1);
-            transform: translateY(-2px);
+            margin-bottom: 3rem;
+            color: var(--accent-gold);
+            font-weight: 600;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
             .hero {
-                text-align: center;
-                padding: 2rem 0;
+                padding: 80px 0;
             }
-
+            
+            .section {
+                padding: 80px 0;
+            }
+            
             .pricing-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
-
-            .features-grid,
-            .steps-container,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .price {
-                font-size: 2.8rem;
+            
+            .pricing-card {
+                margin: 0 auto;
+                max-width: 400px;
             }
         }
 
-        /* Scroll indicator */
-        .scroll-indicator {
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Elements */
+        .floating-element {
             position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--warm-gray);
-            animation: bounce 2s infinite;
+            animation: float 6s ease-in-out infinite;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-5px) translateX(-50%);
-            }
-        }
-
-        /* Floating particles animation */
         @keyframes float {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1);
-                opacity: 0;
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
@@ -659,65 +506,55 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Stop Being Invisible. Start Being Unforgettable.</h1>
-                <p class="hero-subtext">Your dream job won't find a basic LinkedIn and boring resume. Get a complete digital makeover that makes recruiters stop, stare, and say "we need to hire this person."</p>
-                <p class="hero-stats">🚀 While others blend in, you'll stand out from day one. Your future self will thank you.</p>
-                <a href="https://forms.gle/myform" class="cta-button">
-                    ✨ Transform My Brand Now
-                </a>
+                <h1>Stop Being Invisible.<br>Start Being Unforgettable.</h1>
+                <p class="hero-subtitle">Your dream job won't find a basic LinkedIn and boring resume. Get a complete digital makeover that makes recruiters stop, stare, and say "we need to hire this person."</p>
+                <a href="#packages" class="cta-button">Book My Slot</a>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 16l-6-6h12l-6 6z"/>
-            </svg>
         </div>
     </section>
 
-    <!-- Why It Matters Section -->
-    <section class="why-matters">
+    <!-- Problem Section -->
+    <section class="section problem-section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Why Your Current Approach Isn't Working</h2>
-            <p class="section-subtitle animate-on-scroll">The truth? Generic profiles get ignored. Memorable brands get hired.</p>
-            <div class="features-grid">
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Recruiters Google You First</h3>
+            <h2 class="section-title animate-on-scroll">The Truth About Standing Out</h2>
+            <p class="section-subtitle animate-on-scroll">Generic profiles get ignored. Memorable brands get hired.</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card animate-on-scroll">
+                    <h3>🚫 The Invisible Problem</h3>
                     <p>Every hiring manager searches your name before they call. Make sure they find something that makes them want to meet you, not scroll past you.</p>
                 </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">💎</div>
-                    <h3>Your Story, Strategically Told</h3>
+                <div class="problem-card animate-on-scroll">
+                    <h3>💡 The Solution</h3>
                     <p>Stop hoping someone notices your potential. We craft your narrative so every piece of your digital presence works together to open doors.</p>
                 </div>
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Built for the Long Game</h3>
+                <div class="problem-card animate-on-scroll">
+                    <h3>🚀 The Future</h3>
                     <p>This isn't just about your next job. We're building a foundation that grows with you—from internships to CEO. Your brand evolves, but your reputation stays strong.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
+    <!-- Process Section -->
+    <section class="section process-section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Your Transformation in 3 Steps</h2>
-            <p class="section-subtitle animate-on-scroll">From invisible to irresistible in under a week.</p>
-            <div class="steps-container">
-                <div class="step animate-on-scroll">
+            <h2 class="section-title animate-on-scroll">From Invisible to Irresistible in Under a Week</h2>
+            
+            <div class="process-grid">
+                <div class="process-step animate-on-scroll">
                     <div class="step-number">1</div>
-                    <h3>Share Your Vision</h3>
+                    <h3>Deep Dive Discovery</h3>
                     <p>Tell us your story, goals, and dreams. We dig deep to understand what makes you unique and where you want to go.</p>
                 </div>
-                <div class="step animate-on-scroll">
+                <div class="process-step animate-on-scroll">
                     <div class="step-number">2</div>
-                    <h3>We Work Our Magic</h3>
+                    <h3>Complete Digital Makeover</h3>
                     <p>Our team crafts your complete digital identity—from LinkedIn to landing page to resume. Everything designed to make you unforgettable.</p>
                 </div>
-                <div class="step animate-on-scroll">
+                <div class="process-step animate-on-scroll">
                     <div class="step-number">3</div>
-                    <h3>Watch Opportunities Flow</h3>
+                    <h3>Launch & Transform</h3>
                     <p>Launch your new brand and watch as recruiters, mentors, and opportunities start reaching out to you. The transformation is immediate.</p>
                 </div>
             </div>
@@ -725,78 +562,63 @@
     </section>
 
     <!-- Pricing Section -->
-    <section class="pricing">
+    <section class="section pricing-section" id="packages">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Choose Your Transformation</h2>
             <p class="section-subtitle animate-on-scroll">Both packages guarantee you'll never be overlooked again.</p>
             
             <div class="pricing-grid">
-                <!-- Premium Package -->
-                <div class="price-card premium animate-on-scroll">
-                    <h3 class="package-name">🎯 Premium</h3>
-                    <p class="package-tagline">Perfect for serious career builders</p>
-                    <div class="price">₹799</div>
-                    <p class="price-sub">One-time investment, lifetime impact</p>
-                    
-                    <ul class="benefits-list">
-                        <li><span>Personalized landing page that tells your story</span></li>
-                        <li><span>Complete LinkedIn profile makeover</span></li>
-                        <li><span>Professionally designed resume that gets noticed</span></li>
-                        <li><span>Custom link-in-bio page for all platforms</span></li>
-                        <li><span>1-page elevator pitch builder</span></li>
-                        <li><span>5 cold email templates for outreach</span></li>
+                <div class="pricing-card animate-on-scroll">
+                    <div class="package-name">Premium</div>
+                    <div class="package-price">₹799</div>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9;">Perfect for serious career builders</p>
+                    <ul class="package-features">
+                        <li>Personal landing page</li>
+                        <li>LinkedIn profile makeover</li>
+                        <li>Professional resume creation</li>
+                        <li>Link-in-bio page</li>
+                        <li>1-page elevator pitch builder</li>
+                        <li>5 cold email templates</li>
                     </ul>
-                    
-                    <a href="https://forms.gle/myform" class="cta-button">
-                        Get Premium Now
-                    </a>
+                    <button class="package-button">Get Premium Package</button>
                 </div>
-
-                <!-- Elite Package -->
-                <div class="price-card elite animate-on-scroll">
-                    <h3 class="package-name">🚀 Elite</h3>
-                    <p class="package-tagline">For those who want it all + personal coaching</p>
-                    <div class="price">₹1499</div>
-                    <p class="price-sub">Everything in Premium, plus exclusive bonuses</p>
-                    
-                    <ul class="benefits-list">
-                        <li><span>Everything in Premium package</span></li>
-                        <li><span>25-30 min personal branding video masterclass</span></li>
-                        <li><span>Live feedback session on your LinkedIn & resume</span></li>
-                        <li><span>Notion-based budgeting & clarity toolkit</span></li>
-                        <li><span>Emergency fund calculator</span></li>
-                        <li><span>Weekly money ritual tracker</span></li>
-                        <li><span>Mindful spending habits checklist</span></li>
+                
+                <div class="pricing-card elite animate-on-scroll">
+                    <div class="package-name">Elite</div>
+                    <div class="package-price">₹1,499</div>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9;">For those who want it all + personal coaching</p>
+                    <ul class="package-features">
+                        <li>Everything in Premium, plus:</li>
+                        <li>25-30 min Personal Brand Building Masterclass</li>
+                        <li>Live feedback on resume & LinkedIn</li>
+                        <li>Budgeting & clarity toolkit (Notion template)</li>
+                        <li>Emergency fund calculator</li>
+                        <li>Weekly money rituals sheet</li>
+                        <li>Mindful spending habits guide</li>
                     </ul>
-                    
-                    <a href="https://forms.gle/myform" class="cta-button">
-                        Go Elite Now
-                    </a>
+                    <button class="package-button">Get Elite Package</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Real Students, Real Results</h2>
-            <p class="section-subtitle animate-on-scroll">See what happens when you stop blending in.</p>
+            <h2 class="section-title animate-on-scroll">See What Happens When You Stop Blending In</h2>
+            
             <div class="testimonials-grid">
-                <div class="testimonial animate-on-scroll">
-                    <p class="testimonial-text">I went from zero interview calls to 3 job offers in 2 months. My new LinkedIn gets me noticed everywhere.</p>
-                    <div class="testimonial-author">Arjun Mehta</div>
-                    <div class="testimonial-role">Software Engineer, Bangalore</div>
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="testimonial-text">"I went from zero interview calls to 3 job offers in 2 months. My new LinkedIn gets me noticed everywhere."</p>
+                    <div class="testimonial-author">— Priya S., Marketing Graduate</div>
                 </div>
-                <div class="testimonial animate-on-scroll">
-                    <p class="testimonial-text">My landing page landed me a marketing internship at a startup I've been dreaming about. Worth every rupee!</p>
-                    <div class="testimonial-author">Sneha Sharma</div>
-                    <div class="testimonial-role">Marketing Student, Delhi</div>
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="testimonial-text">"My landing page landed me a marketing internship at a startup I've been dreaming about. Worth every rupee!"</p>
+                    <div class="testimonial-author">— Arjun K., Business Student</div>
                 </div>
-                <div class="testimonial animate-on-scroll">
-                    <p class="testimonial-text">The personal branding session was a game-changer. I finally know how to present myself with confidence.</p>
-                    <div class="testimonial-author">Rahul Patel</div>
-                    <div class="testimonial-role">Business Student, Mumbai</div>
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="testimonial-text">"The personal branding session was a game-changer. I finally know how to present myself with confidence."</p>
+                    <div class="testimonial-author">— Sneha M., Recent Graduate</div>
                 </div>
             </div>
         </div>
@@ -805,27 +627,10 @@
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container">
-            <div class="cta-content animate-on-scroll">
-                <h2 class="section-title">Your Future is One Click Away</h2>
-                <p class="urgency-text">🔥 First 50 students get priority delivery + free strategy call worth ₹2000</p>
-                <p class="section-subtitle">Stop waiting for the "perfect moment." Your dream career starts with the decision to invest in yourself today.</p>
-                <a href="https://forms.gle/myform" class="cta-button">
-                    🚀 Apply Now - Let's Build Your Brand
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <section class="footer">
-        <div class="container">
-            <div class="social-links">
-                <a href="#">📸 Instagram</a>
-                <a href="#">💼 LinkedIn</a>
-                <a href="#">📧 Support</a>
-                <a href="#">💬 WhatsApp</a>
-            </div>
-            <p style="color: var(--warm-gray);">© 2024 Personal Brand Builder. Making ambitious students unforgettable.</p>
+            <h2>Your Dream Career Starts Today</h2>
+            <p class="urgency-text">🔥 First 50 students get priority delivery + free strategy call worth ₹2000</p>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">Stop waiting for the "perfect moment." Your dream career starts with the decision to invest in yourself today.</p>
+            <a href="#packages" class="cta-button">Transform My Brand Now</a>
         </div>
     </section>
 
@@ -834,13 +639,17 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        // Animate elements on scroll
+        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -854,43 +663,26 @@
             });
         }, observerOptions);
 
-        // Observe all elements with animate-on-scroll class
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll, .section-title, .section-subtitle, .problem-card, .pricing-card, .testimonial-card, .process-step').forEach(el => {
             observer.observe(el);
         });
 
-        // Add floating particles effect
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.position = 'fixed';
-            particle.style.width = '4px';
-            particle.style.height = '4px';
-            particle.style.background = 'linear-gradient(45deg, #8F00FF, #3FFFA8)';
-            particle.style.borderRadius = '50%';
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animation = 'float 8s linear infinite';
-            particle.style.pointerEvents = 'none';
-            particle.style.zIndex = '1';
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 8000);
-        }
+        // Add stagger animation to cards
+        document.querySelectorAll('.problem-grid .problem-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.2}s`;
+        });
 
-        // Create particles periodically
-        setInterval(createParticle, 2000);
+        document.querySelectorAll('.testimonials-grid .testimonial-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.2}s`;
+        });
 
-        // Add hover effects to buttons
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+        document.querySelectorAll('.process-grid .process-step').forEach((step, index) => {
+            step.style.transitionDelay = `${index * 0.3}s`;
+        });
+
+        document.querySelectorAll('.pricing-grid .pricing-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.2}s`;
         });
 
         // Add parallax effect to hero background
@@ -902,61 +694,28 @@
             }
         });
 
-        // Counter animation for stats (if you want to add animated numbers)
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            const timer = setInterval(() => {
-                start += increment;
-                element.textContent = Math.floor(start);
+        // Add button click handlers
+        document.querySelectorAll('.package-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-3px)';
+                }, 150);
                 
-                if (start >= target) {
-                    element.textContent = target;
-                    clearInterval(timer);
-                }
-            }, 16);
-        }
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
+                // You can add actual booking functionality here
+                alert('Booking functionality would be integrated here!');
+            });
         });
 
-        // Add dynamic text effect to hero title
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add stagger animation to grid items
-            const gridItems = document.querySelectorAll('.feature-card, .step, .price-card, .testimonial');
-            gridItems.forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.1}s`;
+        // Add hover sound effect simulation (visual feedback)
+        document.querySelectorAll('.cta-button, .package-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 20px 40px rgba(255, 215, 0, 0.4)';
             });
-
-            // Add click tracking for analytics (placeholder)
-            document.querySelectorAll('.cta-button').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Analytics tracking would go here
-                    console.log('CTA clicked:', this.textContent.trim());
-                });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
             });
         });
     </script>
