@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be More Than Just a Resume. Be a Brand.</title>
+    <title>Transform Your Digital Presence. Own Your Future.</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,6 +13,8 @@
             --neon-mint: #3FFFA8;
             --warm-gray: #B0B0B0;
             --blush-pink: #FEE4E4;
+            --gold-accent: #FFD700;
+            --deep-purple: #6B46C1;
         }
 
         * {
@@ -26,6 +28,7 @@
             background: var(--midnight-blue);
             color: var(--cyber-white);
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         h1, h2, h3, h4 {
@@ -39,12 +42,69 @@
             padding: 0 2rem;
         }
 
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(143, 0, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(143, 0, 255, 0.6), 0 0 60px rgba(63, 255, 168, 0.3); }
+            100% { box-shadow: 0 0 20px rgba(143, 0, 255, 0.3); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--midnight-blue) 0%, #1a1d3a 100%);
+            background: linear-gradient(135deg, var(--midnight-blue) 0%, #1a1d3a 50%, #2a1f3d 100%);
             position: relative;
             overflow: hidden;
         }
@@ -56,231 +116,220 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="g1" cx="50%" cy="50%"><stop offset="0%" stop-color="%238F00FF" stop-opacity="0.1"/><stop offset="100%" stop-color="%238F00FF" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23g1)"/><circle cx="800" cy="400" r="200" fill="url(%23g1)"/><circle cx="1000" cy="100" r="100" fill="url(%23g1)"/></svg>') no-repeat center center;
-            background-size: cover;
-            opacity: 0.3;
+            background: radial-gradient(circle at 20% 50%, rgba(143, 0, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(63, 255, 168, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            animation: slideInLeft 1s ease-out;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 6vw, 5rem);
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--cyber-white) 0%, var(--neon-mint) 100%);
+            background: linear-gradient(135deg, var(--cyber-white) 0%, var(--neon-mint) 50%, var(--gold-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: glow 3s ease-in-out infinite;
         }
 
         .hero-subtext {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: var(--warm-gray);
             margin-bottom: 2rem;
-            max-width: 600px;
+            max-width: 650px;
+            line-height: 1.6;
         }
 
         .hero-stats {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--neon-mint);
             margin-bottom: 3rem;
             font-weight: 600;
+            padding: 1rem 2rem;
+            background: rgba(63, 255, 168, 0.1);
+            border-left: 4px solid var(--neon-mint);
+            border-radius: 8px;
+            max-width: 600px;
         }
 
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
             background: linear-gradient(135deg, var(--electric-purple) 0%, #b44dff 100%);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 16px;
+            font-size: 1.2rem;
+            font-weight: 700;
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px rgba(143, 0, 255, 0.3);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(143, 0, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 48px rgba(143, 0, 255, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 60px rgba(143, 0, 255, 0.6);
             background: linear-gradient(135deg, #a000e6 0%, #d966ff 100%);
         }
 
-        /* Hero Mockup */
-        .hero-mockup {
-            position: absolute;
-            right: -200px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 600px;
-            height: 400px;
-            opacity: 0.1;
-        }
-
-        /* Why It Matters Section */
-        .why-matters {
-            padding: 4rem 2rem;
-            background: linear-gradient(180deg, var(--midnight-blue) 0%, #0f1426 100%);
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+            position: relative;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
             color: var(--cyber-white);
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--warm-gray);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Why It Matters Section */
+        .why-matters {
+            background: linear-gradient(180deg, var(--midnight-blue) 0%, #0f1426 100%);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .feature-card {
             background: rgba(247, 249, 252, 0.05);
-            padding: 2rem;
-            border-radius: 18px;
+            padding: 2.5rem;
+            border-radius: 24px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-purple), var(--neon-mint));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             background: rgba(247, 249, 252, 0.08);
             border-color: var(--neon-mint);
+            box-shadow: 0 20px 60px rgba(143, 0, 255, 0.2);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
         .feature-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             color: var(--neon-mint);
         }
 
         .feature-card p {
             color: var(--warm-gray);
-            line-height: 1.6;
-        }
-
-        /* What's Included Section */
-        .whats-included {
-            padding: 4rem 2rem;
-            background: var(--midnight-blue);
-        }
-
-        .included-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .included-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(63, 255, 168, 0.05);
-            border-radius: 12px;
-            border-left: 4px solid var(--neon-mint);
-        }
-
-        .included-item::before {
-            content: '✅';
-            font-size: 1.2rem;
-        }
-
-        /* Preview Section */
-        .preview-section {
-            padding: 4rem 2rem;
-            background: linear-gradient(180deg, var(--midnight-blue) 0%, #1a1d3a 100%);
-        }
-
-        .preview-carousel {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-
-        .preview-card {
-            min-width: 300px;
-            height: 400px;
-            background: var(--cyber-white);
-            border-radius: 18px;
-            padding: 2rem;
-            color: var(--midnight-blue);
-            position: relative;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .preview-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 60px rgba(143, 0, 255, 0.3);
-        }
-
-        .preview-card::before {
-            content: 'Sample Profile';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--electric-purple);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         /* How It Works */
         .how-it-works {
-            padding: 4rem 2rem;
-            background: var(--midnight-blue);
+            background: linear-gradient(135deg, #1a1d3a 0%, var(--midnight-blue) 100%);
         }
 
         .steps-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .step {
             text-align: center;
             position: relative;
+            padding: 2rem;
+            background: rgba(247, 249, 252, 0.03);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            background: rgba(247, 249, 252, 0.06);
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, var(--electric-purple) 0%, var(--neon-mint) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 30px rgba(143, 0, 255, 0.3);
         }
 
         .step h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             color: var(--cyber-white);
         }
@@ -288,91 +337,90 @@
         .step p {
             color: var(--warm-gray);
             line-height: 1.6;
-        }
-
-        /* Creator Video Section */
-        .creator-section {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #1a1d3a 0%, var(--midnight-blue) 100%);
-            text-align: center;
-        }
-
-        .video-placeholder {
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            background: rgba(247, 249, 252, 0.1);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem auto;
-            border: 2px dashed var(--warm-gray);
-            color: var(--warm-gray);
-            font-size: 1.1rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 4rem 2rem;
-            background: var(--midnight-blue);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial {
-            background: var(--blush-pink);
-            color: var(--midnight-blue);
-            padding: 2rem;
-            border-radius: 18px;
-            position: relative;
-        }
-
-        .testimonial::before {
-            content: '"';
-            font-size: 4rem;
-            position: absolute;
-            top: -1rem;
-            left: 1rem;
-            color: var(--electric-purple);
-            font-family: serif;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--electric-purple);
+            font-size: 1.05rem;
         }
 
         /* Pricing Section */
         .pricing {
-            padding: 4rem 2rem;
             background: linear-gradient(135deg, var(--midnight-blue) 0%, #1a1d3a 100%);
-            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .price-card {
-            max-width: 400px;
-            margin: 2rem auto;
             background: rgba(247, 249, 252, 0.05);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 2px solid var(--electric-purple);
-            backdrop-filter: blur(10px);
+            padding: 3rem 2.5rem;
+            border-radius: 28px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--electric-purple), var(--neon-mint));
+        }
+
+        .price-card.premium {
+            border-color: var(--electric-purple);
+        }
+
+        .price-card.elite {
+            border-color: var(--gold-accent);
+            position: relative;
+        }
+
+        .price-card.elite::after {
+            content: '🔥 MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--gold-accent), #ffed4e);
+            color: var(--midnight-blue);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--neon-mint);
+            box-shadow: 0 25px 80px rgba(143, 0, 255, 0.3);
+        }
+
+        .package-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--cyber-white);
+        }
+
+        .package-tagline {
+            color: var(--warm-gray);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
 
         .price {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--neon-mint);
             margin-bottom: 0.5rem;
@@ -380,59 +428,123 @@
 
         .price-sub {
             color: var(--warm-gray);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(63, 255, 168, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .benefits-list li:hover {
+            background: rgba(63, 255, 168, 0.1);
+            transform: translateX(5px);
+        }
+
+        .benefits-list li::before {
+            content: '✨';
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .benefits-list li span {
+            color: var(--cyber-white);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--midnight-blue);
+            padding: 5rem 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial {
+            background: var(--blush-pink);
+            color: var(--midnight-blue);
+            padding: 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -1rem;
+            left: 1.5rem;
+            color: var(--electric-purple);
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            padding-top: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--electric-purple);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-role {
+            color: var(--deep-purple);
+            font-size: 0.95rem;
+            margin-top: 0.2rem;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #1a1d3a 0%, var(--midnight-blue) 100%);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .urgency-text {
             background: linear-gradient(135deg, var(--electric-purple), var(--neon-mint));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-
-        /* Form Section */
-        .form-section {
-            padding: 4rem 2rem;
-            background: var(--midnight-blue);
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(247, 249, 252, 0.05);
-            padding: 3rem;
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--cyber-white);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            background: rgba(247, 249, 252, 0.05);
-            color: var(--cyber-white);
-            font-size: 1rem;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--neon-mint);
-            box-shadow: 0 0 0 3px rgba(63, 255, 168, 0.1);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            padding: 1.5rem;
+            border: 2px dashed var(--electric-purple);
+            border-radius: 16px;
         }
 
         /* Footer */
@@ -454,28 +566,16 @@
             color: var(--warm-gray);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .social-links a:hover {
             color: var(--neon-mint);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
+            background: rgba(63, 255, 168, 0.1);
+            transform: translateY(-2px);
         }
 
         /* Responsive Design */
@@ -486,25 +586,30 @@
 
             .hero {
                 text-align: center;
+                padding: 2rem 0;
             }
 
-            .hero-mockup {
-                display: none;
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .features-grid,
-            .included-grid,
             .steps-container,
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
-            .preview-carousel {
-                padding-left: 1rem;
-            }
-
             .section-title {
                 font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .price {
+                font-size: 2.8rem;
             }
         }
 
@@ -529,6 +634,24 @@
                 transform: translateY(-5px) translateX(-50%);
             }
         }
+
+        /* Floating particles animation */
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -536,11 +659,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Be More Than Just a Resume. Be a Brand.</h1>
-                <p class="hero-subtext">Your professional story, told through a custom-crafted digital page — made for today's world, powered by design and AI.</p>
-                <p class="hero-stats">Stand out from 2,000+ students. Own your unique space online.</p>
-                <a href="#form" class="cta-button">
-                    ✨ Reserve My Spot – ₹799
+                <h1>Stop Being Invisible. Start Being Unforgettable.</h1>
+                <p class="hero-subtext">Your dream job won't find a basic LinkedIn and boring resume. Get a complete digital makeover that makes recruiters stop, stare, and say "we need to hire this person."</p>
+                <p class="hero-stats">🚀 While others blend in, you'll stand out from day one. Your future self will thank you.</p>
+                <a href="https://forms.gle/myform" class="cta-button">
+                    ✨ Transform My Brand Now
                 </a>
             </div>
         </div>
@@ -554,66 +677,23 @@
     <!-- Why It Matters Section -->
     <section class="why-matters">
         <div class="container">
-            <h2 class="section-title">Your Digital First Impression</h2>
+            <h2 class="section-title animate-on-scroll">Why Your Current Approach Isn't Working</h2>
+            <p class="section-subtitle animate-on-scroll">The truth? Generic profiles get ignored. Memorable brands get hired.</p>
             <div class="features-grid">
                 <div class="feature-card animate-on-scroll">
                     <div class="feature-icon">🔍</div>
-                    <h3>Recruiters Google You. Let Them Find Gold.</h3>
-                    <p>Your profile is SEO-ready and crafted to impress from the first search result.</p>
+                    <h3>Recruiters Google You First</h3>
+                    <p>Every hiring manager searches your name before they call. Make sure they find something that makes them want to meet you, not scroll past you.</p>
                 </div>
                 <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon">🎤</div>
-                    <h3>A Page That Speaks for You.</h3>
-                    <p>AI-written summaries, project highlights, and smart storytelling that captures your essence.</p>
+                    <div class="feature-icon">💎</div>
+                    <h3>Your Story, Strategically Told</h3>
+                    <p>Stop hoping someone notices your potential. We craft your narrative so every piece of your digital presence works together to open doors.</p>
                 </div>
                 <div class="feature-card animate-on-scroll">
                     <div class="feature-icon">🚀</div>
-                    <h3>Future-Proof Your Career.</h3>
-                    <p>Shareable link you can use in college, job apps, freelancing, and networking forever.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What's Included Section -->
-    <section class="whats-included">
-        <div class="container">
-            <h2 class="section-title">What's Included?</h2>
-            <div class="included-grid">
-                <div class="included-item">Custom domain profile (yourname.brandsite.in)</div>
-                <div class="included-item">Profile picture & intro section</div>
-                <div class="included-item">Bio + Career goals</div>
-                <div class="included-item">Top skills, achievements, and projects</div>
-                <div class="included-item">Resume link integration</div>
-                <div class="included-item">Social media + CTA buttons</div>
-                <div class="included-item">AI-generated summary about you</div>
-                <div class="included-item">1 free update post-delivery</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Preview Section -->
-    <section class="preview-section">
-        <div class="container">
-            <h2 class="section-title">See Samples</h2>
-            <div class="preview-carousel">
-                <div class="preview-card">
-                    <h3 style="color: #8F00FF; margin-bottom: 1rem;">Aditi Sharma</h3>
-                    <p style="color: #666; margin-bottom: 1rem;">UI/UX Designer & Frontend Developer</p>
-                    <div style="height: 100px; background: linear-gradient(135deg, #8F00FF, #3FFFA8); border-radius: 8px; margin-bottom: 1rem; opacity: 0.3;"></div>
-                    <p style="font-size: 0.9rem; color: #888;">✨ Creative problem solver with 3 years experience...</p>
-                </div>
-                <div class="preview-card">
-                    <h3 style="color: #8F00FF; margin-bottom: 1rem;">Rohan Patel</h3>
-                    <p style="color: #666; margin-bottom: 1rem;">Data Scientist & ML Engineer</p>
-                    <div style="height: 100px; background: linear-gradient(135deg, #3FFFA8, #8F00FF); border-radius: 8px; margin-bottom: 1rem; opacity: 0.3;"></div>
-                    <p style="font-size: 0.9rem; color: #888;">🔍 Turning data into insights, one algorithm at a time...</p>
-                </div>
-                <div class="preview-card">
-                    <h3 style="color: #8F00FF; margin-bottom: 1rem;">Priya Singh</h3>
-                    <p style="color: #666; margin-bottom: 1rem;">Marketing Strategist & Content Creator</p>
-                    <div style="height: 100px; background: linear-gradient(135deg, #FF6B8A, #4ECDC4); border-radius: 8px; margin-bottom: 1rem; opacity: 0.3;"></div>
-                    <p style="font-size: 0.9rem; color: #888;">📈 Building brands through strategic storytelling...</p>
+                    <h3>Built for the Long Game</h3>
+                    <p>This isn't just about your next job. We're building a foundation that grows with you—from internships to CEO. Your brand evolves, but your reputation stays strong.</p>
                 </div>
             </div>
         </div>
@@ -622,124 +702,116 @@
     <!-- How It Works -->
     <section class="how-it-works">
         <div class="container">
-            <h2 class="section-title">How It Works – 3 Simple Steps</h2>
+            <h2 class="section-title animate-on-scroll">Your Transformation in 3 Steps</h2>
+            <p class="section-subtitle animate-on-scroll">From invisible to irresistible in under a week.</p>
             <div class="steps-container">
-                <div class="step">
+                <div class="step animate-on-scroll">
                     <div class="step-number">1</div>
-                    <h3>Fill the Form</h3>
-                    <p>Takes just 3 minutes. Share your details, upload your pic and resume, tell us your story.</p>
+                    <h3>Share Your Vision</h3>
+                    <p>Tell us your story, goals, and dreams. We dig deep to understand what makes you unique and where you want to go.</p>
                 </div>
-                <div class="step">
+                <div class="step animate-on-scroll">
                     <div class="step-number">2</div>
-                    <h3>Pay ₹799</h3>
-                    <p>Secure your slot with our simple payment process. Your investment in your future starts here.</p>
+                    <h3>We Work Our Magic</h3>
+                    <p>Our team crafts your complete digital identity—from LinkedIn to landing page to resume. Everything designed to make you unforgettable.</p>
                 </div>
-                <div class="step">
+                <div class="step animate-on-scroll">
                     <div class="step-number">3</div>
-                    <h3>We Build It</h3>
-                    <p>Page delivered in 48–72 hours. Professional, polished, and ready to impress.</p>
+                    <h3>Watch Opportunities Flow</h3>
+                    <p>Launch your new brand and watch as recruiters, mentors, and opportunities start reaching out to you. The transformation is immediate.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Creator Video Section -->
-    <section class="creator-section">
-        <div class="container">
-            <h2 class="section-title">Hear From the Creator</h2>
-            <div class="video-placeholder">
-                📹 Creator Video (60 seconds)
-                <br><br>
-                "This is more than design — it's about visibility. I built this because I know what it's like to get ignored despite having the talent. You deserve better. Let's make sure the world sees you right."
-            </div>
-        </div>
-    </section>
-
-  
     <!-- Pricing Section -->
     <section class="pricing">
         <div class="container">
-            <h2 class="section-title">Ready to Stand Out?</h2>
-            <div class="price-card">
-                <div class="price">₹799</div>
-                <p class="price-sub">One-time payment, no hidden costs</p>
-                <p class="urgency-text">🔥 First 100 students get a free "Visibility Boost" — we'll share your page in our top recruiter network.</p>
-                <a href="#form" class="cta-button">
-                    🚀 Claim Your Spot Now
-                </a>
+            <h2 class="section-title animate-on-scroll">Choose Your Transformation</h2>
+            <p class="section-subtitle animate-on-scroll">Both packages guarantee you'll never be overlooked again.</p>
+            
+            <div class="pricing-grid">
+                <!-- Premium Package -->
+                <div class="price-card premium animate-on-scroll">
+                    <h3 class="package-name">🎯 Premium</h3>
+                    <p class="package-tagline">Perfect for serious career builders</p>
+                    <div class="price">₹799</div>
+                    <p class="price-sub">One-time investment, lifetime impact</p>
+                    
+                    <ul class="benefits-list">
+                        <li><span>Personalized landing page that tells your story</span></li>
+                        <li><span>Complete LinkedIn profile makeover</span></li>
+                        <li><span>Professionally designed resume that gets noticed</span></li>
+                        <li><span>Custom link-in-bio page for all platforms</span></li>
+                        <li><span>1-page elevator pitch builder</span></li>
+                        <li><span>5 cold email templates for outreach</span></li>
+                    </ul>
+                    
+                    <a href="https://forms.gle/myform" class="cta-button">
+                        Get Premium Now
+                    </a>
+                </div>
+
+                <!-- Elite Package -->
+                <div class="price-card elite animate-on-scroll">
+                    <h3 class="package-name">🚀 Elite</h3>
+                    <p class="package-tagline">For those who want it all + personal coaching</p>
+                    <div class="price">₹1499</div>
+                    <p class="price-sub">Everything in Premium, plus exclusive bonuses</p>
+                    
+                    <ul class="benefits-list">
+                        <li><span>Everything in Premium package</span></li>
+                        <li><span>25-30 min personal branding video masterclass</span></li>
+                        <li><span>Live feedback session on your LinkedIn & resume</span></li>
+                        <li><span>Notion-based budgeting & clarity toolkit</span></li>
+                        <li><span>Emergency fund calculator</span></li>
+                        <li><span>Weekly money ritual tracker</span></li>
+                        <li><span>Mindful spending habits checklist</span></li>
+                    </ul>
+                    
+                    <a href="https://forms.gle/myform" class="cta-button">
+                        Go Elite Now
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Form Section -->
-    <section class="form-section" id="form">
+    <!-- Testimonials -->
+    <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">Let's Build Your Brand</h2>
-            <div class="form-container">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="college">College/University</label>
-                        <input type="text" id="college" name="college">
-                    </div>
-                    <div class="form-group">
-                        <label for="course">Course/Major</label>
-                        <input type="text" id="course" name="course">
-                    </div>
-                    <div class="form-group">
-                        <label for="bio">Tell us about yourself (2-3 sentences) *</label>
-                        <textarea id="bio" name="bio" rows="4" placeholder="What makes you unique? What are your goals?" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="skills">Top 5 Skills</label>
-                        <input type="text" id="skills" name="skills" placeholder="e.g., Python, UI Design, Digital Marketing">
-                    </div>
-                    <div class="form-group">
-                        <label for="projects">Key Projects/Achievements</label>
-                        <textarea id="projects" name="projects" rows="3" placeholder="Briefly describe your best work"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="socials">Social Media Links</label>
-                        <input type="text" id="socials" name="socials" placeholder="LinkedIn, Instagram, GitHub, etc.">
-                    </div>
-                    <div class="form-group">
-                        <label for="photo">Profile Photo Upload *</label>
-                        <input type="file" id="photo" name="photo" accept="image/*" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="resume">Resume Upload</label>
-                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
-                    </div>
-                    
-                    <div style="text-align: center; margin: 2rem 0;">
-                        <h3 style="color: var(--neon-mint); margin-bottom: 1rem;">Secure Payment</h3>
-                        <p style="color: var(--warm-gray); margin-bottom: 1rem;">Pay ₹799 via UPI or Card</p>
-                        <div style="background: rgba(247, 249, 252, 0.1); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                            <p style="font-size: 1.1rem; margin-bottom: 1rem;">🔒 UPI Payment</p>
-                            <p style="font-family: monospace; background: var(--midnight-blue); padding: 1rem; border-radius: 8px;">yourname@upi</p>
-                            <p style="color: var(--warm-gray); font-size: 0.9rem; margin-top: 1rem;">After payment, upload screenshot below</p>
-                        </div>
-                        <div class="form-group">
-                            <label for="payment-proof">Payment Screenshot *</label>
-                            <input type="file" id="payment-proof" name="payment-proof" accept="image/*" required>
-                        </div>
-                    </div>
+            <h2 class="section-title animate-on-scroll">Real Students, Real Results</h2>
+            <p class="section-subtitle animate-on-scroll">See what happens when you stop blending in.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-text">I went from zero interview calls to 3 job offers in 2 months. My new LinkedIn gets me noticed everywhere.</p>
+                    <div class="testimonial-author">Arjun Mehta</div>
+                    <div class="testimonial-role">Software Engineer, Bangalore</div>
+                </div>
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-text">My landing page landed me a marketing internship at a startup I've been dreaming about. Worth every rupee!</p>
+                    <div class="testimonial-author">Sneha Sharma</div>
+                    <div class="testimonial-role">Marketing Student, Delhi</div>
+                </div>
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-text">The personal branding session was a game-changer. I finally know how to present myself with confidence.</p>
+                    <div class="testimonial-author">Rahul Patel</div>
+                    <div class="testimonial-role">Business Student, Mumbai</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <button type="submit" class="cta-button" style="width: 100%; justify-content: center;">
-                        🎯 Submit & Reserve My Spot
-                    </button>
-                </form>
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2 class="section-title">Your Future is One Click Away</h2>
+                <p class="urgency-text">🔥 First 50 students get priority delivery + free strategy call worth ₹2000</p>
+                <p class="section-subtitle">Stop waiting for the "perfect moment." Your dream career starts with the decision to invest in yourself today.</p>
+                <a href="https://forms.gle/myform" class="cta-button">
+                    🚀 Apply Now - Let's Build Your Brand
+                </a>
             </div>
         </div>
     </section>
@@ -750,10 +822,10 @@
             <div class="social-links">
                 <a href="#">📸 Instagram</a>
                 <a href="#">💼 LinkedIn</a>
-                <a href="#">📧 Support Email</a>
+                <a href="#">📧 Support</a>
                 <a href="#">💬 WhatsApp</a>
             </div>
-            <p style="color: var(--warm-gray);">© 2024 Personal Brand Builder. Making you unforgettable.</p>
+            <p style="color: var(--warm-gray);">© 2024 Personal Brand Builder. Making ambitious students unforgettable.</p>
         </div>
     </section>
 
@@ -762,13 +834,9 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
@@ -781,8 +849,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
@@ -792,62 +859,80 @@
             observer.observe(el);
         });
 
-        // Add hover effects to preview cards
-        document.querySelectorAll('.preview-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05) rotateY(5deg)';
-                this.style.boxShadow = '0 25px 80px rgba(143, 0, 255, 0.4)';
+        // Add floating particles effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'linear-gradient(45deg, #8F00FF, #3FFFA8)';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animation = 'float 8s linear infinite';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 2000);
+
+        // Add hover effects to buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
             });
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) rotateY(0deg)';
-                this.style.boxShadow = 'none';
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
-        // Form validation and enhancement
-        const form = document.querySelector('form');
-        const requiredFields = form.querySelectorAll('[required]');
-        
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            let isValid = true;
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.style.borderColor = '#ff4757';
-                    field.style.boxShadow = '0 0 0 3px rgba(255, 71, 87, 0.2)';
-                } else {
-                    field.style.borderColor = 'var(--neon-mint)';
-                    field.style.boxShadow = '0 0 0 3px rgba(63, 255, 168, 0.2)';
-                }
-            });
-            
-            if (isValid) {
-                // Show success message
-                const submitBtn = form.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '✅ Submitted Successfully!';
-                submitBtn.style.background = 'linear-gradient(135deg, var(--neon-mint) 0%, #2ed573 100%)';
-                
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = 'linear-gradient(135deg, var(--electric-purple) 0%, #b44dff 100%)';
-                }, 3000);
-                
-                // Here you would normally send the form data to your server
-                console.log('Form submitted successfully');
-            } else {
-                // Show error message
-                alert('Please fill in all required fields');
+        // Add parallax effect to hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
 
-        // Add typing effect to hero title
+        // Counter animation for stats (if you want to add animated numbers)
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                element.textContent = Math.floor(start);
+                
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add dynamic text effect to hero title
         function typeWriter(element, text, speed = 100) {
             let i = 0;
             element.innerHTML = '';
+            
             function type() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
@@ -858,106 +943,22 @@
             type();
         }
 
-        // Initialize typing effect on page load
-        window.addEventListener('load', () => {
-            const heroTitle = document.querySelector('.hero h1');
-            const originalText = heroTitle.textContent;
-            typeWriter(heroTitle, originalText, 50);
-        });
-
-        // Add particles effect to hero background
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.position = 'absolute';
-            particle.style.width = '4px';
-            particle.style.height = '4px';
-            particle.style.background = 'var(--neon-mint)';
-            particle.style.borderRadius = '50%';
-            particle.style.opacity = '0.6';
-            particle.style.animation = 'float 6s linear infinite';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 6 + 's';
-            
-            document.querySelector('.hero').appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 6000);
-        }
-
-        // Create floating particles
-        setInterval(createParticle, 500);
-
-        // Add CSS for floating animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0% {
-                    transform: translateY(100vh) scale(0);
-                    opacity: 0;
-                }
-                10% {
-                    opacity: 0.6;
-                }
-                90% {
-                    opacity: 0.6;
-                }
-                100% {
-                    transform: translateY(-100vh) scale(1);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Add testimonial rotation effect
-        const testimonials = document.querySelectorAll('.testimonial');
-        let currentTestimonial = 0;
-        
-        function rotateTestimonials() {
-            testimonials.forEach((testimonial, index) => {
-                if (index === currentTestimonial) {
-                    testimonial.style.transform = 'scale(1.05)';
-                    testimonial.style.boxShadow = '0 10px 40px rgba(143, 0, 255, 0.3)';
-                } else {
-                    testimonial.style.transform = 'scale(1)';
-                    testimonial.style.boxShadow = 'none';
-                }
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add stagger animation to grid items
+            const gridItems = document.querySelectorAll('.feature-card, .step, .price-card, .testimonial');
+            gridItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
             });
-            
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        }
-        
-        setInterval(rotateTestimonials, 3000);
 
-        // Add counter animation for pricing
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            function updateCounter() {
-                start += increment;
-                if (start < target) {
-                    element.textContent = '₹' + Math.floor(start);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = '₹' + target;
-                }
-            }
-            updateCounter();
-        }
-
-        // Trigger counter animation when pricing section comes into view
-        const priceElement = document.querySelector('.price');
-        const priceObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(priceElement, 799);
-                    priceObserver.unobserve(entry.target);
-                }
+            // Add click tracking for analytics (placeholder)
+            document.querySelectorAll('.cta-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Analytics tracking would go here
+                    console.log('CTA clicked:', this.textContent.trim());
+                });
             });
         });
-        priceObserver.observe(priceElement);
     </script>
 </body>
 </html>
