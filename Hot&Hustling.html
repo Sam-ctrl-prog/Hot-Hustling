@@ -311,9 +311,8 @@
         }
 
         .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
+            display: flex;
+            justify-content: center;
             margin-top: 4rem;
         }
 
@@ -324,26 +323,8 @@
             opacity: 0;
             transform: translateY(60px) scale(0.9);
             transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .pricing-card.elite::after {
-            content: '🔥 MOST POPULAR';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--bright-gold) 100%);
-            color: var(--base-dark);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            box-shadow: var(--shadow-gold);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: var(--shadow-gold); }
-            to { box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6); }
+            max-width: 500px;
+            width: 100%;
         }
 
         .package-name {
@@ -419,6 +400,9 @@
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow-glow);
+            text-decoration: none;
+            display: block;
+            text-align: center;
         }
 
         .package-button::before {
@@ -567,10 +551,6 @@
                 padding: 80px 0;
             }
             
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .pricing-card {
                 margin: 0 auto;
                 max-width: 400px;
@@ -602,7 +582,7 @@
             <div class="hero-content">
                 <h1>Build Your Career. Your Brand. Your Damn Empire.<span class="fire-emoji">🔥</span></h1>
                 <p class="hero-subtitle">Stop blending into the background. We craft digital brands so magnetic that opportunities chase YOU. From invisible to unforgettable in under a week.</p>
-                <a href="#packages" class="cta-button">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7ozdVHBRASXXWR2l2R-3N2jrk9j-uQ5wMv37rxGrZ_DQ6lw/viewform" target="_blank" class="cta-button">
                     ⚡ Get Started
                 </a>
             </div>
@@ -660,12 +640,12 @@
     <!-- Pricing Section -->
     <section class="section pricing-section" id="packages">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Choose Your Transformation</h2>
-            <p class="section-subtitle animate-on-scroll">Both packages guarantee you'll never be overlooked again.</p>
+            <h2 class="section-title animate-on-scroll">Your Complete Transformation Package</h2>
+            <p class="section-subtitle animate-on-scroll">Everything you need to build a magnetic personal brand that gets you noticed.</p>
             
             <div class="pricing-grid">
                 <div class="pricing-card glass-card animate-on-scroll">
-                    <div class="package-name">Premium</div>
+                    <div class="package-name">Premium Package</div>
                     <div class="package-price">₹799</div>
                     <p class="package-description">Perfect for serious career builders ready to stand out</p>
                     <ul class="package-features">
@@ -676,23 +656,7 @@
                         <li>1-page elevator pitch that sells</li>
                         <li>5 cold email templates that work</li>
                     </ul>
-                    <button class="package-button">Get Premium Package</button>
-                </div>
-                
-                <div class="pricing-card glass-card elite animate-on-scroll">
-                    <div class="package-name">Elite</div>
-                    <div class="package-price">₹1,499</div>
-                    <p class="package-description">For those who want it all + personal coaching to dominate</p>
-                    <ul class="package-features">
-                        <li>Everything in Premium, plus:</li>
-                        <li>25-30 min Personal Brand Building Masterclass</li>
-                        <li>Live feedback on resume & LinkedIn optimization</li>
-                        <li>Budgeting & clarity toolkit (Notion template)</li>
-                        <li>Emergency fund calculator for financial freedom</li>
-                        <li>Weekly money rituals that build wealth</li>
-                        <li>Mindful spending habits guide</li>
-                    </ul>
-                    <button class="package-button">Get Elite Package</button>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7ozdVHBRASXXWR2l2R-3N2jrk9j-uQ5wMv37rxGrZ_DQ6lw/viewform" target="_blank" class="package-button">Get Premium Package</a>
                 </div>
             </div>
         </div>
@@ -726,7 +690,7 @@
             <h2>Your Dream Career Starts Today</h2>
             <p class="urgency-text">🔥 First 50 students get priority delivery + free strategy call worth ₹2000</p>
             <p class="final-description">Stop waiting for the "perfect moment." Your dream career starts with the decision to invest in yourself today. Build your empire now.</p>
-            <a href="#packages" class="cta-button">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd7ozdVHBRASXXWR2l2R-3N2jrk9j-uQ5wMv37rxGrZ_DQ6lw/viewform" target="_blank" class="cta-button">
                 🚀 Transform My Brand Now
             </a>
         </div>
@@ -779,10 +743,6 @@
             step.style.transitionDelay = `${index * 0.3}s`;
         });
 
-        document.querySelectorAll('.pricing-grid .pricing-card').forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.2}s`;
-        });
-
         // Enhanced parallax effect
         let ticking = false;
         
@@ -802,56 +762,6 @@
             }
         });
 
-        // Add enhanced button interactions
-        document.querySelectorAll('.package-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Create ripple effect
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.style.position = 'absolute';
-                ripple.style.borderRadius = '50%';
-                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-                ripple.style.transform = 'scale(0)';
-                ripple.style.animation = 'ripple 0.6s linear';
-                ripple.style.pointerEvents = 'none';
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-                
-                // Add click animation
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-                
-                // Simulate booking functionality
-                const packageName = this.closest('.pricing-card').querySelector('.package-name').textContent;
-                alert(`🔥 Ready to transform with the ${packageName} package? Booking functionality would integrate here!`);
-            });
-        });
-
-        // Add ripple animation CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
         // Enhanced hover effects for all CTA buttons
         document.querySelectorAll('.cta-button, .package-button').forEach(button => {
             button.addEventListener('mouseenter', function() {
@@ -860,49 +770,40 @@
             });
             
             button.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-                this.style.boxShadow = '';
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 20px 40px rgba(255, 76, 96, 0.3)';
             });
         });
 
-        // Add floating animation to fire emoji
-        const fireEmoji = document.querySelector('.fire-emoji');
-        if (fireEmoji) {
-            setInterval(() => {
-                fireEmoji.style.transform = `scale(${1 + Math.random() * 0.2}) rotate(${-5 + Math.random() * 10}deg)`;
-            }, 2000);
-        }
-
-        // Enhanced testimonial card interactions
-        document.querySelectorAll('.testimonial-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) rotateX(0deg) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-            });
-        });
-
-        // Add subtle mouse movement parallax for hero section
+        // Add magnetic cursor effect
         document.addEventListener('mousemove', (e) => {
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                const x = (e.clientX / window.innerWidth - 0.5) * 20;
-                const y = (e.clientY / window.innerHeight - 0.5) * 20;
-                
-                const heroBefore = hero.querySelector('::before');
-                if (window.innerWidth > 768) { // Only on desktop
-                    hero.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
-                }
+            const cursor = document.querySelector('.cursor');
+            if (!cursor) {
+                const newCursor = document.createElement('div');
+                newCursor.className = 'cursor';
+                newCursor.style.cssText = `
+                    position: fixed;
+                    width: 20px;
+                    height: 20px;
+                    background: radial-gradient(circle, var(--accent-coral), transparent);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    mix-blend-mode: difference;
+                    transition: transform 0.1s ease;
+                `;
+                document.body.appendChild(newCursor);
             }
+            
+            const cursorEl = document.querySelector('.cursor');
+            cursorEl.style.left = e.clientX - 10 + 'px';
+            cursorEl.style.top = e.clientY - 10 + 'px';
         });
 
-        // Add typing effect to hero subtitle (optional enhancement)
+        // Enhanced typing effect for hero subtitle
         function typeWriter(element, text, speed = 50) {
             let i = 0;
             element.innerHTML = '';
-            element.style.opacity = '1';
             
             function type() {
                 if (i < text.length) {
@@ -911,14 +812,208 @@
                     setTimeout(type, speed);
                 }
             }
-            type();
+            
+            setTimeout(type, 1000);
         }
 
-        // Initialize on load
+        // Apply typing effect after page load
         window.addEventListener('load', () => {
-            // Add any initialization code here
-            console.log('🔥 Hot & Hustling landing page loaded!');
+            const subtitle = document.querySelector('.hero-subtitle');
+            const originalText = subtitle.textContent;
+            typeWriter(subtitle, originalText, 30);
         });
+
+        // Add floating elements animation
+        function createFloatingElements() {
+            const floatingContainer = document.createElement('div');
+            floatingContainer.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 1;
+                overflow: hidden;
+            `;
+            
+            for (let i = 0; i < 6; i++) {
+                const element = document.createElement('div');
+                element.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 6 + 4}px;
+                    height: ${Math.random() * 6 + 4}px;
+                    background: rgba(255, 76, 96, ${Math.random() * 0.3 + 0.1});
+                    border-radius: 50%;
+                    animation: float${i} ${Math.random() * 10 + 15}s linear infinite;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                `;
+                
+                // Add keyframes for floating animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes float${i} {
+                        0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+                        10% { opacity: 1; }
+                        90% { opacity: 1; }
+                        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                floatingContainer.appendChild(element);
+            }
+            
+            document.body.appendChild(floatingContainer);
+        }
+
+        // Initialize floating elements
+        createFloatingElements();
+
+        // Add countdown timer for urgency
+        function createCountdownTimer() {
+            const urgencyText = document.querySelector('.urgency-text');
+            if (urgencyText) {
+                const endTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 hours from now
+                
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const timeLeft = endTime - now;
+                    
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    if (timeLeft > 0) {
+                        urgencyText.innerHTML = `🔥 Limited Time: ${hours}h ${minutes}m ${seconds}s left for priority delivery + free strategy call worth ₹2000`;
+                    } else {
+                        urgencyText.innerHTML = '🔥 Don\'t miss out! Limited spots available for priority delivery';
+                    }
+                }
+                
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            }
+        }
+
+        // Initialize countdown
+        createCountdownTimer();
+
+        // Add progressive enhancement for better performance
+        if ('IntersectionObserver' in window) {
+            // Enhanced lazy loading for better performance
+            const lazyElements = document.querySelectorAll('.glass-card, .process-step');
+            
+            const lazyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.willChange = 'transform, opacity';
+                        setTimeout(() => {
+                            entry.target.style.willChange = 'auto';
+                        }, 1000);
+                        lazyObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            lazyElements.forEach(el => lazyObserver.observe(el));
+        }
+
+        // Add social proof counter animation
+        function animateCounters() {
+            const stats = [
+                { element: null, target: 500, suffix: '+ Students Transformed' },
+                { element: null, target: 95, suffix: '% Success Rate' },
+                { element: null, target: 48, suffix: ' Hour Average Delivery' }
+            ];
+            
+            // You can add these stats to the page if needed
+            stats.forEach((stat, index) => {
+                if (stat.element) {
+                    animateCounter(stat.element, stat.target, stat.suffix);
+                }
+            });
+        }
+
+        function animateCounter(element, target, suffix) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 40);
+        }
+
+        // Add smooth reveal animations for text
+        function revealText() {
+            const textElements = document.querySelectorAll('h1, h2, h3, p');
+            
+            textElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+                element.style.transitionDelay = `${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+        }
+
+        // Initialize text reveal on load
+        window.addEventListener('load', revealText);
+
+        // Add error handling for external links
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                try {
+                    // Track click event (you can integrate with analytics here)
+                    console.log('External link clicked:', this.href);
+                } catch (error) {
+                    console.error('Error tracking link click:', error);
+                }
+            });
+        });
+
+        // Add performance optimization
+        window.addEventListener('load', () => {
+            // Remove unused CSS classes after animations complete
+            setTimeout(() => {
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    if (el.classList.contains('visible')) {
+                        el.classList.remove('animate-on-scroll');
+                    }
+                });
+            }, 3000);
+        });
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Add focus styles for keyboard navigation
+        const focusStyle = document.createElement('style');
+        focusStyle.textContent = `
+            .keyboard-navigation .cta-button:focus,
+            .keyboard-navigation .package-button:focus {
+                outline: 3px solid var(--accent-gold);
+                outline-offset: 2px;
+            }
+        `;
+        document.head.appendChild(focusStyle);
     </script>
 </body>
 </html>
