@@ -152,6 +152,115 @@
             font-size: clamp(0.85rem, 2.5vw, 1rem);
         }
 
+        /* Link Tree Styles */
+        .linktree-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 500px;
+            padding: 0 20px;
+            pointer-events: all;
+        }
+
+        .linktree-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .linktree-header h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            margin-bottom: 0.5rem;
+        }
+
+        .linktree-subtitle {
+            opacity: 0.8;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+
+        .link-item {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-item:hover::before,
+        .link-item:active::before {
+            left: 100%;
+        }
+
+        .link-item:hover,
+        .link-item:active {
+            transform: translateY(-3px) scale(1.02);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .link-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-weight: 600;
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            margin-bottom: 0.2rem;
+        }
+
+        .link-description {
+            opacity: 0.7;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            line-height: 1.4;
+        }
+
+        .link-arrow {
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .link-item:hover .link-arrow,
+        .link-item:active .link-arrow {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
         .navigation {
             position: fixed;
             top: 1rem;
@@ -272,6 +381,10 @@
             background: linear-gradient(135deg, rgba(118, 75, 162, 0.1), rgba(240, 147, 251, 0.1));
         }
 
+        .section:nth-child(4) {
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(102, 126, 234, 0.1));
+        }
+
         /* Mobile Optimizations */
         @media (max-width: 768px) {
             .section {
@@ -289,6 +402,22 @@
             .card {
                 padding: 1.2rem;
                 margin-bottom: 0.5rem;
+            }
+
+            .linktree-container {
+                max-width: 400px;
+                padding: 0 15px;
+            }
+
+            .link-item {
+                padding: 0.9rem 1.2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .link-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 0.8rem;
             }
             
             .navigation {
@@ -345,6 +474,11 @@
             .card {
                 padding: 1rem;
             }
+
+            .linktree-container {
+                max-width: 320px;
+                padding: 0 10px;
+            }
             
             .social-links {
                 gap: 0.4rem;
@@ -386,6 +520,19 @@
             .card {
                 padding: 0.8rem;
             }
+
+            .linktree-container {
+                max-width: 600px;
+            }
+
+            .linktree-header {
+                margin-bottom: 1rem;
+            }
+
+            .link-item {
+                padding: 0.7rem 1rem;
+                margin-bottom: 0.6rem;
+            }
         }
     </style>
 </head>
@@ -397,6 +544,7 @@
         <div class="nav-dot active" onclick="scrollToSection(0)"></div>
         <div class="nav-dot" onclick="scrollToSection(1)"></div>
         <div class="nav-dot" onclick="scrollToSection(2)"></div>
+        <div class="nav-dot" onclick="scrollToSection(3)"></div>
     </div>
 
     <div class="social-links">
@@ -441,24 +589,108 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
+       
+        <!-- Link Tree Section -->
         <section class="section">
-            <div class="floating-cards">
-                <div class="card">
-                    <span class="card-icon">🚀</span>
-                    <h3>Entrepreneurship</h3>
-                    <p>Building innovative solutions and scaling businesses from ground up</p>
+            <div class="linktree-container">
+                <div class="linktree-header">
+                    <h2>All Links</h2>
+                    <p class="linktree-subtitle">Connect with me everywhere</p>
                 </div>
-                <div class="card">
-                    <span class="card-icon">💡</span>
-                    <h3>Strategy</h3>
-                    <p>Developing winning strategies that drive growth and maximize impact</p>
-                </div>
-                                <div class="card">
-                    <span class="card-icon">🎯</span>
-                    <h3>Marketing</h3>
-                    <p>Creating compelling campaigns that convert and build lasting relationships</p>
-                </div>
+                
+                <a href="https://www.instagram.com/hot.and.hustling/" target="_blank" class="link-item">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <div class="link-content">
+                        <div class="link-title">Instagram</div>
+                        <div class="link-description">Follow my entrepreneurial journey</div>
+                    </div>
+                    <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
+
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="link-item">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <div class="link-content">
+                        <div class="link-title">LinkedIn</div>
+                        <div class="link-description">Professional network & insights</div>
+                    </div>
+                    <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
+
+                <a href="https://x.com/hotandhustling" target="_blank" class="link-item">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <div class="link-content">
+                        <div class="link-title">X (Twitter)</div>
+                        <div class="link-description">Real-time thoughts & updates</div>
+                    </div>
+                    <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
+
+                <a href="https://github.com/Sam-ctrl-prog" target="_blank" class="link-item">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <div class="link-content">
+                        <div class="link-title">GitHub</div>
+                        <div class="link-description">Code projects & repositories</div>
+                    </div>
+                    <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
+
+                <a href="mailto:swanandi18022006@gmail.com" class="link-item">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <div class="link-content">
+                        <div class="link-title">Email Me</div>
+                        <div class="link-description">Let's discuss business opportunities</div>
+                    </div>
+                    <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
+
+                <a href="https://swanandi.vercel.app/landing.html" target="_blank" class="link-item">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                    </svg>
+                    <div class="link-content">
+                        <div class="link-title">My Website</div>
+                        <div class="link-description">Full portfolio & blog</div>
+                    </div>
+                    <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
+
+                <a href="http://save-me.in/" target="_blank" class="link-item">
+                    <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                    </svg>
+                    <div class="link-content">
+                        <div class="link-title">Save-Me</div>
+                        <div class="link-description">Emergency fund Planning Website </div>
+                    </div>
+                    <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
+                
             </div>
         </section>
 
@@ -471,6 +703,27 @@
             </div>
         </section>
     </div>
+
+     <!-- Skills Section -->
+        <section class="section">
+            <div class="floating-cards">
+                <div class="card">
+                    <span class="card-icon">🚀</span>
+                    <h3>Entrepreneurship</h3>
+                    <p>Building innovative solutions and scaling businesses from ground up</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">💡</span>
+                    <h3>Strategy</h3>
+                    <p>Developing winning strategies that drive growth and maximize impact</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🎯</span>
+                    <h3>Marketing</h3>
+                    <p>Creating compelling campaigns that convert and build lasting relationships</p>
+                </div>
+            </div>
+        </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
@@ -611,6 +864,25 @@
             } else {
                 card.addEventListener('mouseenter', handleCardEnter);
                 card.addEventListener('mouseleave', handleCardLeave);
+            }
+        });
+        
+        // Link tree interactions
+        document.querySelectorAll('.link-item').forEach(link => {
+            const handleLinkEnter = () => {
+                link.style.transform = 'translateY(-3px) scale(1.02)';
+            };
+            
+            const handleLinkLeave = () => {
+                link.style.transform = 'translateY(0) scale(1)';
+            };
+            
+            if (isTouch) {
+                link.addEventListener('touchstart', handleLinkEnter, { passive: true });
+                link.addEventListener('touchend', handleLinkLeave, { passive: true });
+            } else {
+                link.addEventListener('mouseenter', handleLinkEnter);
+                link.addEventListener('mouseleave', handleLinkLeave);
             }
         });
         
